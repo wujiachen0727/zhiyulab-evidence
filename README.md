@@ -14,32 +14,35 @@
 
 ## 目录结构
 
-按文章 slug 分子目录，每篇文章一个独立空间：
-
-```
-zhiyulab-evidence/
-└── go-profiling-toolchain/      # 《从 pprof 到持续 profiling：Go 性能工具链的三次升级》
-    ├── e1-e4-sampling/          # 实验 1+4：pprof 100Hz 采样盲点
-    ├── e2-wait-trap/            # 实验 2：pprof 给你一个数，trace 给你一个故事
-    ├── e3-spike/                # 实验 3：时段毛刺被大窗口稀释
-    └── e5-pyroscope-overhead/   # 实验 5：Pyroscope 全量 profile 开销实测
-```
-
-每个实验目录都有独立 README 说明复现步骤。
+按文章 slug 分子目录，每篇文章一个独立空间。
 
 ## 文章清单
 
+> 按发布时间倒序。点击文章标题跳转到对应的子目录。
+
 | 文章 | 发布时间 | 子目录 | 配套实验数 |
 |------|---------|--------|:---------:|
-| [《从 pprof 到持续 profiling：Go 性能工具链的三次升级》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-profiling-toolchain) | 2026-04 | `go-profiling-toolchain/` | 4 组（8 条独立论据）|
+| [《从 pprof 到持续 profiling：Go 性能工具链的三次升级》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-profiling-toolchain) | 2026-04-19 | `go-profiling-toolchain/` | 4 组（8 条独立论据）|
+| [《Gin 很好，但你的项目可能需要更多》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-web-framework-design) | 2026-04-16 | `go-web-framework-design/` | 3 组 |
+| [《别急着拆微服务：Go 项目演进的三个关键决策》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-microservice-patterns) | 2026-04-16 | `go-microservice-patterns/` | 2 组 |
+| [《从手动到框架：Go DI 演进的三个拐点》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-di-evolution) | 2026-04-15 | `go-di-evolution/` | 5 组 |
+| [《Go vs Java GC：同一场延迟战争的两条路》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-vs-java-gc) | 2026-04-15 | `go-vs-java-gc/` | 1 组 |
+| [《Go 的测试框架不想让你 TDD》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-tdd-benchmark) | 2026-04-14 | `go-tdd-benchmark/` | 3 组 |
+| [《你写的Go代码，编译器真的看得懂吗》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-compiler-optimization) | 2026-04-13 | `go-compiler-optimization/` | 5 组 |
+| [《Go 反射为什么"难用"？因为它本来就不想让你用》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-reflect-deep-dive) | 2026-04-12 | `go-reflect-deep-dive/` | 2 组 |
+| [《Go 错误分层实战：从裸奔到三层防线》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-error-handling) | 2026-04-11 | `go-error-handling/` | 3 组 |
+| [《从一行超时配置到分布式可观测性——Go HTTP 服务的渐进式演进实战》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-http-optimization) | 2026-04-10 | `go-http-optimization/` | 6 组 |
+| [《Go 并发编程实战：Channel 还是 Mutex？一个场景驱动的选择框架》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-channel-vs-mutex) | 2026-04-09 | `go-channel-vs-mutex/` | 2 组 |
+| [《Go 内存管理优化：内联是逃逸分析的隐藏杠杆》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-escape-analysis) | 2026-04-09 | `go-escape-analysis/` | 3 组 |
 
 （后续文章发布时会在此追加）
 
 ## 复现原则
 
-- **二进制不入库**：所有 `.go` 源码会入库，但编译产物（可执行文件）不入库。跑实验前请自己 `go build`
+- **二进制不入库**：所有 `.go` / `.java` 源码会入库，但编译产物（可执行文件、`.class`）不入库。跑实验前请自己 `go build` 或 `javac`
 - **原始数据入库**：`.pprof`、`.trace`、`.csv`、`.log` 这类实测原始文件会保留
-- **README 先读**：每个实验目录的 README 会写明环境要求（Go 版本、OS、依赖服务）
+- **子目录名自解释**：大多数子目录按场景命名（如 `inline-vs-escape/`、`timeout-config/`），配合对应文章阅读即可理解意图
+- **部分目录有 README**：近期文章（如 `go-profiling-toolchain/`）每个子目录都有独立 README；历史文章可能没有 README，但源码结构直接对应文章内的实验标号
 
 ## 联系作者
 
