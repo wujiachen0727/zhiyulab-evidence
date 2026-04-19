@@ -1,0 +1,33 @@
+# Compiled Go binaries
+workload
+*-bin
+*.exe
+*.test
+
+# Go build cache
+vendor/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Temporary files
+tmp/
+*.tmp
+*.bak
+
+# 环境私密文件
+.env
+.env.local
+
+# Python venv（如未来实验用到）
+venv/
+__pycache__/
+*.pyc

@@ -1,0 +1,54 @@
+[INFO]  starting profiling session:
+[INFO]    AppName:        e5-overhead-test
+[INFO]    Tags:           map[experiment:e5]
+[INFO]    ProfilingTypes: [cpu alloc_objects alloc_space inuse_objects inuse_space goroutines mutex_count mutex_duration block_count block_duration]
+[INFO]    DisableGCRuns:  false
+[INFO]    UploadRate:     15s
+[DEBUG] profiling session reset 2026-04-19 08:15:15 +0800 CST
+2026/04/19 08:15:16 === E5 agent 服务启动（带 Pyroscope agent）===
+2026/04/19 08:15:16 监听: :6062
+2026/04/19 08:15:16 Pyroscope server: http://localhost:4040
+2026/04/19 08:15:16 端点: /work, /stats, /debug/pprof
+2026/04/19 08:15:16 Pyroscope agent: 10 profile types 已开启
+2026/04/19 08:15:16 PID: 14381
+[DEBUG] starting cpu profile collector
+[DEBUG] profiling session reset 2026-04-19 08:15:15 +0800 CST
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=average&from=1776557715000000000&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=goroutines&until=1776557731979777958
+[DEBUG] content type: multipart/form-data; boundary=569720f635ce073b29d1ef19a94712201ac0c276c7e5eed657da1c7abf99
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557715000000000&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557731979777958
+[DEBUG] content type: multipart/form-data; boundary=1b40b731e19116f548d4436bec6e296a648746445980365671f6086021ef
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557715000000000&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557731979777958
+[DEBUG] content type: multipart/form-data; boundary=42d53cddb0180801881478a9fdd05e4b65dfc7d5f6bb193968186df1b83e
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557715000000000&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=100&spyName=gospy&units=&until=1776557731979777958
+[DEBUG] content type: multipart/form-data; boundary=998691b383fc4077354f390580b813c9a6314beaec18fb15d61c626add46
+[DEBUG] profiling session reset 2026-04-19 08:15:31.979777958 +0800 CST m=+15.004144209
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=average&from=1776557731979777958&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=goroutines&until=1776557746979939791
+[DEBUG] content type: multipart/form-data; boundary=0afec88b81121780866659cdd67985b61ff7add34107a4dcb3f745c593a8
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557731979777958&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557746979939791
+[DEBUG] content type: multipart/form-data; boundary=4fe723be0b8800b0d7e42014f552b3f404c33f39f87e845b695d5d53975c
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557731979777958&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557746979939791
+[DEBUG] content type: multipart/form-data; boundary=3b3efdabb3fa5e107a097b99f899ae7cd46613aab0ba2742aa494e48b72c
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557731979777958&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=100&spyName=gospy&units=&until=1776557746979939791
+[DEBUG] content type: multipart/form-data; boundary=285244ae7d3270ff879f1c5bafa20852c8563a18acd5344f0ef0b6aeaaf8
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=sum&from=1776557716979996000&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=100&spyName=gospy&units=samples&until=1776557747113658000
+[DEBUG] content type: multipart/form-data; boundary=7fb8788a88eeb071f6dccd17ce83ff1dbc8006ed88202038215ad9dc2d3a
+[DEBUG] profiling session reset 2026-04-19 08:15:46.979939791 +0800 CST m=+30.004144125
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=average&from=1776557746979939791&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=goroutines&until=1776557761980102875
+[DEBUG] content type: multipart/form-data; boundary=98a6ae839d9bc734c5ca7ce927c55633bcf582d46386f44138a9fc1f0adb
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557746979939791&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557761980102875
+[DEBUG] content type: multipart/form-data; boundary=ecc354c3f6cc5a4ad99e96bff1db8dccf3955255800cd79eaba302b1dc7c
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557746979939791&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=100&spyName=gospy&units=&until=1776557761980102875
+[DEBUG] content type: multipart/form-data; boundary=7d35edbf8cd44a5a03c72b6a66a842971100a0f99710f35e1d127d1a4646
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557746979939791&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557761980102875
+[DEBUG] content type: multipart/form-data; boundary=ee8c7acde2a26614f631a89e9b9a071d159b8d622ad2404a836726a1c40c
+[DEBUG] profiling session reset 2026-04-19 08:16:01.980102875 +0800 CST m=+45.004144584
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=average&from=1776557761980102875&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=goroutines&until=1776557776980275083
+[DEBUG] content type: multipart/form-data; boundary=95101bd18aa80091228263780367a0ffae0ef15b08b64da4bc313bc9b2a6
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557761980102875&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557776980275083
+[DEBUG] content type: multipart/form-data; boundary=9b7b59d56c95a6d779a8b23ec6630127ee8fce635164359de2f05229fe98
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557761980102875&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=0&spyName=gospy&units=&until=1776557776980275083
+[DEBUG] content type: multipart/form-data; boundary=dca999954b2d9da6a216113f8100e6002c37f02f6945429763024cffc2b8
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=&from=1776557761980102875&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=100&spyName=gospy&units=&until=1776557776980275083
+[DEBUG] content type: multipart/form-data; boundary=08409e2ca4b716e2cd67ed73ac4ed70117a5b6edd7d9397e7e1dfdc85263
+[DEBUG] uploading at http://localhost:4040/ingest?aggregationType=sum&from=1776557747113660000&name=e5-overhead-test%7B__session_id__%3D6075369794df644a%2Cexperiment%3De5%7D&sampleRate=100&spyName=gospy&units=samples&until=1776557777026077000
+[DEBUG] content type: multipart/form-data; boundary=344fa3bb295c31bbce23e09602cee79923a160131dad9769243b229634df

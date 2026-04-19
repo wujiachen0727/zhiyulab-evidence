@@ -1,0 +1,53 @@
+================================
+E5 Pyroscope 开销实测最终对比
+================================
+
+=== 基线（无 agent） ===
+  Total:	60.0007 secs
+  Slowest:	0.0105 secs
+  Fastest:	0.0001 secs
+  Average:	0.0018 secs
+  Requests/sec:	45430.3654
+
+Latency distribution:
+Latency distribution:
+  10%% in 0.0006 secs
+  25%% in 0.0006 secs
+  50%% in 0.0007 secs
+  75%% in 0.0007 secs
+  90%% in 0.0007 secs
+  95%% in 0.0007 secs
+  99%% in 0.0009 secs
+
+Details (average, fastest, slowest):
+
+=== 带 agent（Pyroscope push mode） ===
+  Total:	60.0009 secs
+  Slowest:	0.0151 secs
+  Fastest:	0.0001 secs
+  Average:	0.0018 secs
+  Requests/sec:	45113.7809
+
+Latency distribution:
+Latency distribution:
+  10%% in 0.0006 secs
+  25%% in 0.0006 secs
+  50%% in 0.0007 secs
+  75%% in 0.0007 secs
+  90%% in 0.0007 secs
+  95%% in 0.0008 secs
+  99%% in 0.0010 secs
+
+Details (average, fastest, slowest):
+
+=== 进程资源（平均）===
+
+基线：
+  平均 CPU: 0.0%
+  平均 RSS: 33.5 MB
+  样本数: 13
+
+带 agent：
+  平均 CPU: 0.0%
+  平均 RSS: 35.4 MB
+  样本数: 13

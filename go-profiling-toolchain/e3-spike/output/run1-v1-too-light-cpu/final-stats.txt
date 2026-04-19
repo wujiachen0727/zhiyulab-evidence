@@ -1,0 +1,3 @@
+elapsed: 30.546621833s
+total requests: 1353460
+slow path hits: 250

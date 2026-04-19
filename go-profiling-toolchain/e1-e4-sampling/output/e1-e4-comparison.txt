@@ -1,0 +1,51 @@
+
+----- 100Hz -----
+File: workload
+Type: cpu
+Time: 2026-04-19 08:45:04 CST
+Duration: 38.65s, Total samples = 35.22s (91.14%)
+Showing nodes accounting for 35.19s, 99.91% of 35.22s total
+Dropped 12 nodes (cum <= 0.18s)
+      flat  flat%   sum%        cum   cum%
+     9.11s 25.87% 25.87%      9.33s 26.49%  main.shortFn (inline)
+     8.91s 25.30% 51.16%      9.22s 26.18%  main.microFn (inline)
+     8.82s 25.04% 76.21%      9.23s 26.21%  main.mediumFn (inline)
+     7.19s 20.41% 96.62%      7.41s 21.04%  main.heavyFn (inline)
+     1.16s  3.29% 99.91%      1.16s  3.29%  runtime.asyncPreempt
+         0     0% 99.91%     35.19s 99.91%  main.main
+         0     0% 99.91%     35.19s 99.91%  main.runWorkload
+         0     0% 99.91%     35.19s 99.91%  runtime.main
+
+----- 1000Hz -----
+File: workload
+Type: cpu
+Time: 2026-04-19 08:45:43 CST
+Duration: 38.66s, Total samples = 9.84s (25.46%)
+Showing nodes accounting for 9.84s, 100% of 9.84s total
+Dropped 9 nodes (cum <= 0.05s)
+      flat  flat%   sum%        cum   cum%
+     2.34s 23.76% 23.76%      2.61s 26.56%  main.microFn (inline)
+     2.31s 23.46% 47.22%      2.59s 26.31%  main.mediumFn (inline)
+     2.29s 23.21% 70.44%      2.56s 26.06%  main.shortFn (inline)
+     1.84s 18.71% 89.15%      2.07s 21.06%  main.heavyFn (inline)
+     1.07s 10.84%   100%      1.07s 10.84%  runtime.asyncPreempt
+         0     0%   100%      9.84s   100%  main.main
+         0     0%   100%      9.84s   100%  main.runWorkload
+         0     0%   100%      9.84s   100%  runtime.main
+
+----- 10000Hz -----
+File: workload
+Type: cpu
+Time: 2026-04-19 08:46:22 CST
+Duration: 38.66s, Total samples = 1060.40ms ( 2.74%)
+Showing nodes accounting for 1059.90ms, 100% of 1060.40ms total
+Dropped 32 nodes (cum <= 5.30ms)
+      flat  flat%   sum%        cum   cum%
+  250.40ms 23.61% 23.61%   282.50ms 26.64%  main.microFn (inline)
+  244.90ms 23.10% 46.71%   278.60ms 26.27%  main.shortFn (inline)
+  242.40ms 22.86% 69.57%   276.90ms 26.11%  main.mediumFn (inline)
+  195.10ms 18.40% 87.97%   221.90ms 20.93%  main.heavyFn (inline)
+  127.10ms 11.99%   100%   127.10ms 11.99%  runtime.asyncPreempt
+         0     0%   100%  1060.10ms   100%  main.main
+         0     0%   100%  1059.90ms   100%  main.runWorkload
+         0     0%   100%  1060.10ms   100%  runtime.main
