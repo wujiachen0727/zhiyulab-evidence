@@ -1,0 +1,14 @@
+=== plugin.Open 重复加载实验 ===
+Go 版本: 1.26.2 darwin/arm64
+
+第一次加载 plugin_v1.so: GetVersion() = v1
+第二次加载 plugin_v1.so: GetVersion() = v1
+两次加载返回同一指针? p1 == p2: true
+
+加载 plugin_v2.so: GetVersion() = v2
+
+--- 尝试热更新 ---
+替换 v1.so 内容为 v2 版本后重新加载...
+结论：Go runtime 缓存已加载的 plugin，
+plugin.Open 对同名 .so 不会重新加载，而是返回缓存实例。
+这是 plugin 包"不可卸载"的根本原因之一。

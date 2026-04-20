@@ -22,6 +22,7 @@
 
 | 文章 | 发布时间 | 子目录 | 配套实验数 |
 |------|---------|--------|:---------:|
+| [《别用 Go 写插件系统——但如果你非要写，这里有张决策表》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-plugin-system) | 2026-04-20 | `go-plugin-system/` | 2 组（benchmark + reload）|
 | [《从 pprof 到持续 profiling：Go 性能工具链的三次升级》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-profiling-toolchain) | 2026-04-19 | `go-profiling-toolchain/` | 4 组（8 条独立论据）|
 | [《Gin 很好，但你的项目可能需要更多》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-web-framework-design) | 2026-04-16 | `go-web-framework-design/` | 3 组 |
 | [《别急着拆微服务：Go 项目演进的三个关键决策》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-microservice-patterns) | 2026-04-16 | `go-microservice-patterns/` | 2 组 |
