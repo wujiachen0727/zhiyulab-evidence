@@ -1,0 +1,224 @@
+{
+  "projects": {
+    "gin": {
+      "issues_total": 16,
+      "files": 54,
+      "lines": 7869,
+      "by_rule": {
+        "G103": 4,
+        "G115": 3,
+        "G104": 3,
+        "G124": 2,
+        "G120": 2,
+        "G304": 2
+      },
+      "by_severity": {
+        "HIGH": 3,
+        "MEDIUM": 6,
+        "LOW": 7
+      },
+      "by_bucket": {
+        "layer2": 9,
+        "layer1": 4,
+        "hygiene": 3
+      }
+    },
+    "echo": {
+      "issues_total": 3,
+      "files": 44,
+      "lines": 11185,
+      "by_rule": {
+        "G124": 1,
+        "G304": 1,
+        "G104": 1
+      },
+      "by_severity": {
+        "MEDIUM": 2,
+        "LOW": 1
+      },
+      "by_bucket": {
+        "layer2": 2,
+        "hygiene": 1
+      }
+    },
+    "cobra": {
+      "issues_total": 12,
+      "files": 18,
+      "lines": 6914,
+      "by_rule": {
+        "G304": 10,
+        "G703": 1,
+        "G302": 1
+      },
+      "by_severity": {
+        "HIGH": 1,
+        "MEDIUM": 11
+      },
+      "by_bucket": {
+        "layer2": 12
+      }
+    },
+    "testify": {
+      "issues_total": 117,
+      "files": 34,
+      "lines": 14339,
+      "by_rule": {
+        "G104": 114,
+        "G103": 2,
+        "G115": 1
+      },
+      "by_severity": {
+        "HIGH": 1,
+        "LOW": 116
+      },
+      "by_bucket": {
+        "layer2": 1,
+        "layer1": 2,
+        "hygiene": 114
+      }
+    },
+    "logrus": {
+      "issues_total": 2,
+      "files": 20,
+      "lines": 2806,
+      "by_rule": {
+        "G104": 2
+      },
+      "by_severity": {
+        "LOW": 2
+      },
+      "by_bucket": {
+        "hygiene": 2
+      }
+    },
+    "redis": {
+      "issues_total": 51,
+      "files": 155,
+      "lines": 82103,
+      "by_rule": {
+        "G115": 28,
+        "G104": 6,
+        "G118": 4,
+        "G103": 4,
+        "G404": 2,
+        "G401": 2,
+        "G505": 2,
+        "G702": 1,
+        "G204": 1,
+        "G112": 1
+      },
+      "by_severity": {
+        "HIGH": 35,
+        "MEDIUM": 6,
+        "LOW": 10
+      },
+      "by_bucket": {
+        "layer2": 41,
+        "layer1": 4,
+        "hygiene": 6
+      }
+    },
+    "grpc-go": {
+      "issues_total": 990,
+      "files": 780,
+      "lines": 255755,
+      "by_rule": {
+        "G104": 686,
+        "G115": 120,
+        "G103": 112,
+        "G404": 31,
+        "G304": 13,
+        "G706": 5,
+        "G303": 4,
+        "G123": 3,
+        "G703": 3,
+        "G709": 2,
+        "G402": 2,
+        "G108": 2,
+        "G101": 2,
+        "G306": 2,
+        "G109": 1,
+        "G114": 1,
+        "G204": 1
+      },
+      "by_severity": {
+        "HIGH": 166,
+        "MEDIUM": 21,
+        "LOW": 803
+      },
+      "by_bucket": {
+        "layer2": 192,
+        "layer1": 112,
+        "hygiene": 686
+      }
+    },
+    "client_golang": {
+      "issues_total": 50,
+      "files": 73,
+      "lines": 16732,
+      "by_rule": {
+        "G104": 20,
+        "G114": 9,
+        "G115": 8,
+        "G404": 5,
+        "G103": 4,
+        "G704": 1,
+        "G304": 1,
+        "G107": 1,
+        "G302": 1
+      },
+      "by_severity": {
+        "HIGH": 14,
+        "MEDIUM": 12,
+        "LOW": 24
+      },
+      "by_bucket": {
+        "layer2": 26,
+        "layer1": 4,
+        "hygiene": 20
+      }
+    }
+  },
+  "total_by_rule": {
+    "G104": 832,
+    "G115": 160,
+    "G103": 126,
+    "G404": 38,
+    "G304": 27,
+    "G114": 10,
+    "G706": 5,
+    "G703": 4,
+    "G118": 4,
+    "G303": 4,
+    "G124": 3,
+    "G123": 3,
+    "G120": 2,
+    "G302": 2,
+    "G401": 2,
+    "G204": 2,
+    "G505": 2,
+    "G709": 2,
+    "G402": 2,
+    "G108": 2,
+    "G101": 2,
+    "G306": 2,
+    "G702": 1,
+    "G112": 1,
+    "G109": 1,
+    "G704": 1,
+    "G107": 1
+  },
+  "total_by_bucket": {
+    "layer2": 283,
+    "layer1": 126,
+    "hygiene": 832
+  },
+  "total_by_severity": {
+    "HIGH": 220,
+    "MEDIUM": 58,
+    "LOW": 963
+  },
+  "high_by_bucket": {
+    "layer2": 220
+  }
+}

@@ -1,0 +1,14 @@
+=== 漏洞版本：fetchPreview 默认信任任何 URL ===
+  泄漏内容: {"instance-role":"web-prod","aws_access_key":"AKIA...EXPOSED","secret":"wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"}
+
+=== 修复版本：fetchPreviewSafe 拒绝内网/loopback ===
+  按预期拒绝: refused: 127.0.0.1 -> 127.0.0.1 is private/loopback
+
+=== 关键观察 ===
+1. Go 标准库 http.Client 对 URL 的 host 不做任何安全过滤
+2. http.Get(userInput) 在业务代码里非常常见——URL 预览、图片代理、Webhook
+3. 真实威胁目标：
+   - AWS/GCP/Alibaba 云 metadata (169.254.169.254) → 临时凭证
+   - 内网服务（Redis/ES/Consul 没认证的管理接口）
+   - 本机 loopback（file://、gopher://、dict:// 如果库支持）
+4. 防御要点：IP 白名单 + 自定义 DialContext + 禁止重定向 + 处理 DNS rebinding

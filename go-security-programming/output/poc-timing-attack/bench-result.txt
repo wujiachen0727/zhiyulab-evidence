@@ -1,0 +1,36 @@
+goos: darwin
+goarch: arm64
+pkg: poc-timing
+cpu: Apple M4 Pro
+BenchmarkNaive_WrongAtFirst-14           	1000000000	         1.448 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtFirst-14           	1000000000	         1.454 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtFirst-14           	1000000000	         1.449 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtFirst-14           	1000000000	         1.514 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtFirst-14           	1000000000	         1.457 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtLast-14            	1000000000	         1.725 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtLast-14            	1000000000	         1.704 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtLast-14            	1000000000	         1.717 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtLast-14            	1000000000	         1.711 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_WrongAtLast-14            	1000000000	         1.695 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_Exact-14                  	1000000000	         1.933 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_Exact-14                  	1000000000	         1.836 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_Exact-14                  	1000000000	         1.925 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_Exact-14                  	1000000000	         1.860 ns/op	       0 B/op	       0 allocs/op
+BenchmarkNaive_Exact-14                  	1000000000	         1.920 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtFirst-14    	405689360	         8.870 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtFirst-14    	405766848	         8.896 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtFirst-14    	407738883	         9.154 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtFirst-14    	409549286	         8.875 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtFirst-14    	408841480	         8.839 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtLast-14     	404888427	         8.838 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtLast-14     	408571546	         8.812 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtLast-14     	403659264	         8.944 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtLast-14     	403879089	         9.045 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_WrongAtLast-14     	393878506	         8.822 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_Exact-14           	401307780	         8.929 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_Exact-14           	404124728	         8.966 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_Exact-14           	404407100	         8.946 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_Exact-14           	404051929	         8.913 ns/op	       0 B/op	       0 allocs/op
+BenchmarkConstantTime_Exact-14           	402009638	         8.890 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	poc-timing	95.899s

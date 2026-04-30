@@ -1,0 +1,17 @@
+=== 正常路径：封装起效 ===
+  初始余额: 1000, 冻结: true
+  Withdraw(500) 结果: false（冻结状态拒绝出金）
+  余额: 1000
+
+=== unsafe.Pointer 绕过封装 ===
+  bypassBalance 后余额: 999999999（绕过 Deposit/Withdraw）
+  unfreezeViaReflect 后冻结: false
+  Withdraw(1亿) 结果: true（冻结被绕过，余额也是伪造的）
+  最终余额: 899999999
+
+=== 关键观察 ===
+1. Account 结构体所有字段小写——Go 类型系统禁止跨包访问
+2. 但只要拿到 *Account 指针，unsafe.Pointer 能读写任何字段
+3. reflect 默认保护私有字段，unsafe.Pointer(v.UnsafeAddr()) 绕过
+4. Go 的类型安全是'编译期'和'常规 API'的——不是运行时内存隔离
+5. 威胁模型：依赖第三方库时，你无法保证对方不用 unsafe

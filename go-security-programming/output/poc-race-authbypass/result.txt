@@ -1,0 +1,56 @@
+==================
+WARNING: DATA RACE
+Write at 0x00c0001aa0b0 by goroutine 8:
+  main.sneakyAttacker()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:81 +0x74
+  main.main.func2()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:111 +0x70
+
+Previous read at 0x00c0001aa0b0 by goroutine 10:
+  main.adminOperation()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:56 +0x50
+  main.main.func1()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:101 +0x90
+
+Goroutine 8 (running) created at:
+  main.main()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:109 +0x3c4
+
+Goroutine 10 (running) created at:
+  main.main()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:99 +0x310
+==================
+==================
+WARNING: DATA RACE
+Write at 0x00c0001aa0b0 by goroutine 32:
+  main.sneakyAttacker()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:81 +0x74
+  main.main.func2()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:111 +0x70
+
+Previous write at 0x00c0001aa0b0 by goroutine 13:
+  main.sneakyAttacker()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:81 +0x74
+  main.main.func2()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:111 +0x70
+
+Goroutine 32 (running) created at:
+  main.main()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:109 +0x3c4
+
+Goroutine 13 (finished) created at:
+  main.main()
+      /Users/wujiachen/WriteCraft/articles/go-security-programming/evidence/code/poc-race-authbypass/main.go:109 +0x3c4
+==================
+总共 500 次 adminOperation，通过权限校验 2 次
+金库余额：2000（每次通过 +1000）
+
+=== 关键观察 ===
+1. 用 `go run -race main.go` 运行，race detector 会报 DATA RACE
+   指向 sneakyAttacker 对 sess.Role 的写 vs adminOperation 的读
+2. 即便没有 race detector，通过次数可能 < rounds（取决于调度）
+   如果某次 adminOperation 在 T0 看到 admin，T2 被降权，操作仍然执行
+3. goroutine 隔离只隔离栈，不隔离堆上的共享对象
+4. sync.RWMutex 保护了 map 访问，没保护 map value 指向的对象的字段
+Found 2 data race(s)
+exit status 66

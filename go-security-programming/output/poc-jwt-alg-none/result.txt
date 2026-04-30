@@ -1,0 +1,14 @@
+=== 攻击 token（alg:none，未签名） ===
+eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJhbGljZSIsInJvbGUiOiJhZG1pbiIsImV4cCI6OTk5OTk5OTk5OX0.
+
+=== 漏洞版本：verifyJWTUnsafe 接受 alg:none ===
+  ✗ 被接受！sub=alice, role=admin（攻击者获得 admin 权限）
+
+=== 修复版本：verifyJWTSafe 白名单拒绝 ===
+  ✓ 按预期拒绝: alg none not allowed
+
+=== 关键观察 ===
+1. JWT 规范本身允许 alg:none——这是协议层面的决定
+2. 多数 JWT 库默认不接受 none，但**手写验证代码**非常容易踩坑
+3. 核心防线：永远用白名单（allowedAlgs），不信任 header 里的 alg 值
+4. 历史案例：2015-2018 年间多个主流 JWT 库爆出 alg-confusion 漏洞

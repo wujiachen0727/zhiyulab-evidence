@@ -1,0 +1,22 @@
+=== 看起来都是 16 字节随机 token ===
+  math/rand 版本:   1a9c5fa5383cd36366dcf00a2ec811bd
+  crypto/rand 版本: 15961063519f2049e7e7807c7df85395
+
+从肉眼看不出差异。代码 review 时也看不出——Go 编译器不会警告。
+gosec 会警告（规则 G404），但前提是你跑了 gosec。
+
+=== 证伪：math/rand 的确定性 ===
+两个相同种子的 math/rand 源的输出：
+  第 1 次: r1=941920, r2=941920  (相同? true)
+  第 2 次: r1=496827, r2=496827  (相同? true)
+  第 3 次: r1=902129, r2=902129  (相同? true)
+  第 4 次: r1=503289, r2=503289  (相同? true)
+  第 5 次: r1=964346, r2=964346  (相同? true)
+
+含义：如果攻击者能猜到/泄漏种子（如 time.Now().Unix()），
+       就能完全复现你生成的所有 token。
+=== 结论 ===
+1. 编译器无法区分 math/rand 和 crypto/rand 的调用场景
+2. Go 标准库命名上很诚实——math vs crypto——但业务代码经常就手误或手懒
+3. 任何用于安全目的的随机（token/salt/nonce/key）必须 crypto/rand
+4. math/rand/v2 虽然默认用系统随机种子，但算法仍非密码学安全
