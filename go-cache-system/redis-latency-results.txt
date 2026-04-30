@@ -1,0 +1,13 @@
+=== bigcache GET 延迟 (10000 次) ===
+bigcache:
+  平均: 192ns
+  P50:  167ns
+  P90:  334ns
+  P99:  750ns
+
+=== Redis GET 延迟 (10000 次, Docker localhost) ===
+Redis:
+  平均: 248.464µs
+  P50:  245.709µs
+  P90:  271.792µs
+  P99:  381.584µs
