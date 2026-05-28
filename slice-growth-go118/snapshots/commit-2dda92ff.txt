@@ -1,0 +1,37 @@
+tree 360ba410092470d549d245a35c825069816e8cda
+parent 301f6c8019bea813b039c3d376a6464a0e117dce
+author Keith Randall <khr@golang.org> 1631033069 -0700
+committer Keith Randall <khr@golang.org> 1632776031 +0000
+
+runtime: make slice growth formula a bit smoother
+
+Instead of growing 2x for < 1024 elements and 1.25x for >= 1024 elements,
+use a somewhat smoother formula for the growth factor. Start reducing
+the growth factor after 256 elements, but slowly.
+
+starting cap    growth factor
+256             2.0
+512             1.63
+1024            1.44
+2048            1.35
+4096            1.30
+
+(Note that the real growth factor, both before and now, is somewhat
+larger because we round up to the next size class.)
+
+This CL also makes the growth monotonic (larger initial capacities
+make larger final capacities, which was not true before). See discussion
+at https://groups.google.com/g/golang-nuts/c/UaVlMQ8Nz3o
+
+256 was chosen as the threshold to roughly match the total number of
+reallocations when appending to eventually make a very large
+slice. (We allocate smaller when appending to capacities [256,1024]
+and larger with capacities [1024,...]).
+
+Change-Id: I876df09fdc9ae911bb94e41cb62675229cb10512
+Reviewed-on: https://go-review.googlesource.com/c/go/+/347917
+Trust: Keith Randall <khr@golang.org>
+Trust: Martin Möhrmann <martin@golang.org>
+Run-TryBot: Keith Randall <khr@golang.org>
+TryBot-Result: Go Bot <gobot@golang.org>
+Reviewed-by: Martin Möhrmann <martin@golang.org>

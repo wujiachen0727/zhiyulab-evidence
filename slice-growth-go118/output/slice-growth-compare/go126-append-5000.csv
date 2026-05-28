@@ -1,0 +1,23 @@
+# runtime=go1.26.2 darwin/arm64 mode=append n=5000 start_cap=1024
+# append-byte-growth
+idx,append_index,len,cap,bytes,growth
+0,0,0,0,0,-
+1,1,1,32,32,-
+2,33,33,64,64,2.0000
+3,65,65,128,128,2.0000
+4,129,129,256,256,2.0000
+5,257,257,512,512,2.0000
+6,513,513,896,896,1.7500
+7,897,897,1408,1408,1.5714
+8,1409,1409,2048,2048,1.4545
+9,2049,2049,3072,3072,1.5000
+10,3073,3073,4096,4096,1.3333
+11,4097,4097,5376,5376,1.3125
+# SUMMARY append-byte-growth
+go_version=go1.26.2
+goos=darwin
+goarch=arm64
+growth_events=11
+final_len=4097
+final_cap=5376
+final_bytes=5376

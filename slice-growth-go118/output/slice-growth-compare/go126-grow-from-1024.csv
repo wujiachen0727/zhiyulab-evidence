@@ -1,0 +1,18 @@
+# runtime=go1.26.2 darwin/arm64 mode=grow-from-cap n=5000 start_cap=1024
+# grow-from-cap
+idx,append_index,len,cap,bytes,growth
+0,0,1024,1024,1024,-
+1,1,1025,1536,1536,1.5000
+2,513,1537,2304,2304,1.5000
+3,1281,2305,3072,3072,1.3333
+4,2049,3073,4096,4096,1.3333
+5,3073,4097,5376,5376,1.3125
+6,4353,5377,6912,6912,1.2857
+# SUMMARY grow-from-cap
+go_version=go1.26.2
+goos=darwin
+goarch=arm64
+growth_events=6
+final_len=5377
+final_cap=6912
+final_bytes=6912

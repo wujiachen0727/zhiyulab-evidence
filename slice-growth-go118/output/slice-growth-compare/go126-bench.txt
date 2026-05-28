@@ -1,0 +1,21 @@
+goos: darwin
+goarch: arm64
+pkg: slice-growth-compare
+cpu: Apple M4 Pro
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  531010	      2186 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  522147	      2218 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  560535	      2140 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  549880	      2110 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  585834	      2147 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  603326	      2028 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  587088	      1989 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  580828	      2016 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  583989	      1919 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  627302	      1907 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  801020	      1518 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  758950	      1517 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  822374	      1516 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  782414	      1509 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  813772	      1509 ns/op	   11008 B/op	       4 allocs/op
+PASS
+ok  	slice-growth-compare	18.540s

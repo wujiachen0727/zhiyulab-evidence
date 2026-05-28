@@ -1,0 +1,20 @@
+goos: darwin
+goarch: arm64
+pkg: slice-growth-compare
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  368830	      2952 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  388016	      2922 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  414439	      2922 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  410502	      3009 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_NoPrealloc_4K-14     	  420565	      2983 ns/op	   12536 B/op	      12 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  618357	      2060 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  586918	      2010 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  582388	      2152 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  511340	      2003 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_Prealloc256_4K-14    	  605320	      2095 ns/op	   12032 B/op	       6 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  719932	      1561 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  768124	      1578 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  789802	      1591 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  751527	      1599 ns/op	   11008 B/op	       4 allocs/op
+BenchmarkAppendByteGrowth_From1024To4096-14    	  776691	      1606 ns/op	   11008 B/op	       4 allocs/op
+PASS
+ok  	slice-growth-compare	18.689s
