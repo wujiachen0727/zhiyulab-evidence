@@ -22,6 +22,7 @@
 
 | 文章 | 发布时间 | 子目录 | 配套实验数 |
 |------|---------|--------|:---------:|
+| [《从 PHP 到 Go：真正迁移的是复杂度的归属》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/php-to-go-migration) | 2026-05-30 | `php-to-go-migration/` | 1 组对照实验（PHP weak / PHP strict / Go decode）|
 | [《别再背 slice 扩容公式了：1.18 真正改掉了什么》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/slice-growth-go118) | 2026-05-28 | `slice-growth-go118/` | 5 组自造证据 + 1 组官方快照 |
 | [《Go 的安全是两层的：一层语言给，一层你自己给》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-security-programming) | 2026-04-30 | `go-security-programming/` | 8 组 PoC + 1 组聚合扫描 |
 | [《从 sync.Map 到 Redis：Go 缓存升级的三个拐点》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-cache-system) | 2026-04-30 | `go-cache-system/` | 3 组（benchmark + GC 压力 + Redis 延迟）|
