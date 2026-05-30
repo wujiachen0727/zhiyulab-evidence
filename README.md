@@ -22,6 +22,7 @@
 
 | 文章 | 发布时间 | 子目录 | 配套实验数 |
 |------|---------|--------|:---------:|
+| [《为什么大厂还在用 RPC？不是因为快，是因为不崩》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/rpc-vs-http) | 2026-05-30 | `rpc-vs-http/` | 2 组（协议层吞吐对比 E1 + 端到端延迟分解 E2）|
 | [《从 PHP 到 Go：真正迁移的是复杂度的归属》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/php-to-go-migration) | 2026-05-30 | `php-to-go-migration/` | 1 组对照实验（PHP weak / PHP strict / Go decode）|
 | [《泛型的本质，是把混乱挡在编译期门口》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/generics-convergence) | 2026-05-30 | `generics-convergence/` | 1 组四路径对照实验 |
 | [《别再背 slice 扩容公式了：1.18 真正改掉了什么》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/slice-growth-go118) | 2026-05-28 | `slice-growth-go118/` | 5 组自造证据 + 1 组官方快照 |
