@@ -22,6 +22,7 @@
 
 | 文章 | 发布时间 | 子目录 | 配套实验数 |
 |------|---------|--------|:---------:|
+| [《Claude Code 用着用着就忘——是它的上下文机制，不是它的记忆力》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/claude-code-context-management) | 2026-06-01 | `claude-code-context-management/` | 1 组（三级压缩阈值工程意义验证 + 多场景触发轮次估算）|
 | [《分布式锁不是选 Redis 就完事了》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/distributed-lock-selection) | 2026-05-31 | `distributed-lock-selection/` | 6 组（E1-E5 实验代码 + E6 benchmark）|
 | [《为什么大厂还在用 RPC？不是因为快，是因为不崩》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/rpc-vs-http) | 2026-05-30 | `rpc-vs-http/` | 2 组（协议层吞吐对比 E1 + 端到端延迟分解 E2）|
 | [《从 PHP 到 Go：真正迁移的是复杂度的归属》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/php-to-go-migration) | 2026-05-30 | `php-to-go-migration/` | 1 组对照实验（PHP weak / PHP strict / Go decode）|
