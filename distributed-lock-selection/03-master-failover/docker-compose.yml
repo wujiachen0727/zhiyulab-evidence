@@ -1,0 +1,30 @@
+version: '3.8'
+# E3：Redis 主从切换丢锁实验环境
+# master 在 6379，replica 在 6380。replica 通过 docker network 连 master。
+services:
+  redis-master:
+    image: redis:7-alpine
+    container_name: dl-redis-master
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly no
+    networks:
+      - dl-net
+
+  redis-replica:
+    image: redis:7-alpine
+    container_name: dl-redis-replica
+    ports:
+      - "6380:6379"
+    command: >
+      redis-server
+      --appendonly no
+      --replicaof redis-master 6379
+    depends_on:
+      - redis-master
+    networks:
+      - dl-net
+
+networks:
+  dl-net:
+    driver: bridge
