@@ -1,0 +1,12 @@
+=== 环境信息 ===
+Go 版本: go1.26.4
+CPU: 14 核
+GoMaxProcs: 14
+goos: darwin
+goarch: arm64
+pkg: evidence/inline-boundary/articles/sse-vs-websocket/evidence/code/benchmark
+cpu: Apple M4 Pro
+BenchmarkSSE-14          	       1	1125961167 ns/op	75732024 B/op	  552563 allocs/op
+BenchmarkWebSocket-14    	       1	2324352208 ns/op	93550288 B/op	  730270 allocs/op
+PASS
+ok  	evidence/inline-boundary/articles/sse-vs-websocket/evidence/code/benchmark	3.901s

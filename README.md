@@ -45,6 +45,8 @@
 | [《Go 并发编程实战：Channel 还是 Mutex？一个场景驱动的选择框架》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-channel-vs-mutex) | 2026-04-09 | `go-channel-vs-mutex/` | 2 组 |
 | [《Go 内存管理优化：内联是逃逸分析的隐藏杠杆》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-escape-analysis) | 2026-04-09 | `go-escape-analysis/` | 3 组 |
 
+| [《数据所有权：预防 Go data race 的设计思维》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-data-race-beyond) | 2026-06-19 | `go-data-race-beyond/` | 4 组（data-race-demo、ownership-model-demo、ownership-transfer-demo、pipeline-demo）|
+
 （后续文章发布时会在此追加）
 
 ## 复现原则
