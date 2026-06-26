@@ -1,0 +1,126 @@
+==========================================
+E1 实验：惰性删除触发时机
+环境：Redis 7.0 (Docker)
+==========================================
+
+=== 步骤 1：清空当前数据库 ===
+OK
+
+=== 步骤 2：设置带 TTL 的 key ===
+OK
+1
+设置了 mykey（TTL=5秒）
+
+=== 步骤 3：立即查看 TTL ===
+5
+
+=== 步骤 4：等待 6 秒（超过过期时间）===
+等待 6 秒后...
+
+=== 步骤 5：直接 GET 访问（触发惰性删除）===
+
+
+=== 步骤 6：验证 key 是否已被删除 ===
+0
+
+=== 步骤 7：设置新 key 并查看过期后的内存占用 ===
+OK
+1
+设置了 lazykey（TTL=3秒）
+
+=== 步骤 8：在过期前查看 key 是否存在 ===
+1
+
+=== 步骤 9：等待 4 秒（超过过期时间）===
+等待 4 秒后...
+
+=== 步骤 10：不访问 key，直接检查 EXISTS ===
+0
+
+=== 步骤 11：用 GET 访问后再检查 ===
+
+0
+
+=== 步骤 12：演示惰性删除的实际效果——过期 key 占用内存 ===
+OK
+1
+设置了 bigdata（10KB 数据，TTL=2秒）
+
+=== 步骤 13：使用 INFO 查看内存（过期前）===
+used_memory:1227784
+used_memory_human:1.17M
+used_memory_rss:8781824
+used_memory_rss_human:8.38M
+used_memory_peak:1227784
+used_memory_peak_human:1.17M
+used_memory_peak_perc:100.01%
+used_memory_overhead:982104
+used_memory_startup:981224
+used_memory_dataset:245680
+used_memory_dataset_perc:99.64%
+used_memory_lua:32768
+used_memory_vm_eval:32768
+used_memory_lua_human:32.00K
+used_memory_scripts_eval:0
+used_memory_vm_functions:33792
+used_memory_vm_total:66560
+used_memory_vm_total_human:65.00K
+used_memory_functions:192
+used_memory_scripts:192
+used_memory_scripts_human:192B
+
+=== 步骤 14：等待 3 秒 ===
+等待 3 秒后（key 已过期但未被访问）...
+
+=== 步骤 15：过期后但未访问时的内存 ===
+used_memory:1217464
+used_memory_human:1.16M
+used_memory_rss:8781824
+used_memory_rss_human:8.38M
+used_memory_peak:1227784
+used_memory_peak_human:1.17M
+used_memory_peak_perc:99.16%
+used_memory_overhead:982040
+used_memory_startup:981224
+used_memory_dataset:235424
+used_memory_dataset_perc:99.65%
+used_memory_lua:32768
+used_memory_vm_eval:32768
+used_memory_lua_human:32.00K
+used_memory_scripts_eval:0
+used_memory_vm_functions:33792
+used_memory_vm_total:66560
+used_memory_vm_total_human:65.00K
+used_memory_functions:192
+used_memory_scripts:192
+used_memory_scripts_human:192B
+
+=== 步骤 16：访问该 key（触发惰性删除）===
+
+
+=== 步骤 17：访问后再次查看内存 ===
+used_memory:1217464
+used_memory_human:1.16M
+used_memory_rss:8781824
+used_memory_rss_human:8.38M
+used_memory_peak:1227784
+used_memory_peak_human:1.17M
+used_memory_peak_perc:99.16%
+used_memory_overhead:982040
+used_memory_startup:981224
+used_memory_dataset:235424
+used_memory_dataset_perc:99.65%
+used_memory_lua:32768
+used_memory_vm_eval:32768
+used_memory_lua_human:32.00K
+used_memory_scripts_eval:0
+used_memory_vm_functions:33792
+used_memory_vm_total:66560
+used_memory_vm_total_human:65.00K
+used_memory_functions:192
+used_memory_scripts:192
+used_memory_scripts_human:192B
+
+==========================================
+E1 实验完成
+==========================================

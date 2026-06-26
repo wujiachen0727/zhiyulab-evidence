@@ -22,6 +22,7 @@
 
 | 文章 | 发布时间 | 子目录 | 配套实验数 |
 |------|---------|--------|:---------:|
+| [《Redis 过期策略 vs 内存淘汰：你分清了吗？》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/redis-expiry-eviction) | 2026-06-26 | `redis-expiry-eviction/` | 4 组实验 + 1 组场景（E1 惰性删除 + E2 定期删除 + E3 淘汰策略 + E4 LRU samples + E5 session 雪崩场景）|
 | [《Go 反射的暗债：encoding/json 为什么不用代码生成》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/go-json-reflection-debt) | 2026-06-02 | `go-json-reflection-debt/` | 1 组（v1/v2/jsoniter/sonic 四库 benchmark + K8s API struct 统计）|
 | [《Claude Code 用着用着就忘——是它的上下文机制，不是它的记忆力》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/claude-code-context-management) | 2026-06-01 | `claude-code-context-management/` | 1 组（三级压缩阈值工程意义验证 + 多场景触发轮次估算）|
 | [《分布式锁不是选 Redis 就完事了》](https://github.com/wujiachen0727/zhiyulab-evidence/tree/main/distributed-lock-selection) | 2026-05-31 | `distributed-lock-selection/` | 6 组（E1-E5 实验代码 + E6 benchmark）|

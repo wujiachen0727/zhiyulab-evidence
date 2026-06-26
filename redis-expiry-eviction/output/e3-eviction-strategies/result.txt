@@ -1,0 +1,141 @@
+==========================================
+E3 实验：不同淘汰策略对比
+环境：Redis 7.0 (Docker)
+==========================================
+OK
+OK
+
+=== 实验 1：noeviction（不淘汰，写入报错） ===
+OK
+OK
+maxmemory=2MB, policy=noeviction
+noeviction 模式下第 79 个 key 写入失败（OOM）——验证：noeviction 真的不淘汰
+
+=== 实验 2：allkeys-lru（淘汰最近最少使用的 key） ===
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+OK
+已创建 50 个 key（每个 ~2KB），前 20 个是热 key
+OK
+allkeys-lru 淘汰后...
+热 key lru:1 是否存在：0
+热 key lru:10 是否存在：0
+热 key lru:20 是否存在：0
+冷 key lru:30 是否存在：0
+冷 key lru:40 是否存在：0
+冷 key lru:50 是否存在：0
+当前 DBSIZE：0
+
+=== 实验 3：volatile-ttl（淘汰剩余 TTL 最短的 key） ===
+OK
+OK
+OK
+OK
+1
+OK
+1
+OK
+1
+已创建 3 个 key（不同 TTL）
+  ttl_long TTL=3600
+  ttl_short TTL=60
+  ttl_shortest TTL=5
+OK
+volatile-ttl 淘汰后...
+ttl_long 是否存在：0
+ttl_short 是否存在：0
+ttl_shortest 是否存在：0
+
+=== 实验 4：volatile-lru vs allkeys-lru 的区别 ===
+OK
+OK
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+OK
+1
+OK
+已创建 10 个有 TTL + 10 个无 TTL 的 key（每个 ~5KB）
+OK
+volatile-lru 淘汰后（只能淘汰有 TTL 的 key）...
+有 TTL 的 key 数量：10
+有 TTL 的 key 剩余：0
+无 TTL 的 key 剩余：10
+
+==========================================
+E3 实验完成
+==========================================
