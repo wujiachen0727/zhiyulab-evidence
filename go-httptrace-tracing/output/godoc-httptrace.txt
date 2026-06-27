@@ -1,0 +1,13 @@
+=== https://pkg.go.dev/net/http/httptrace ===
+状态码: 200
+
+阶段耗时:
+  DNS 解析:        13.876292ms
+  TCP 连接:        273.416µs
+  TLS 握手:        259.957375ms
+  等待首字节(TTFB): 274.47025ms
+  Body 传输:       69.296792ms
+  总耗时:          618.156959ms
+
+连接信息:
+  连接复用:        false

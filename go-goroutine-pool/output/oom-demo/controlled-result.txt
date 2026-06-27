@@ -1,0 +1,111 @@
+=== 受控 OOM 实验 ===
+目标 goroutine 数量：100000
+Go 版本：go1.26.4
+CPU：14 核
+
+[初始] goroutines=1 | heapAlloc=0.24 MB | heapSys=3.72 MB | heapObjects=189 | GC次数=0
+[已创建 1000] goroutines=1001 | heapAlloc=0.87 MB | heapSys=5.78 MB | heapObjects=4096 | GC次数=0
+[已创建 2000] goroutines=2001 | heapAlloc=1.53 MB | heapSys=7.81 MB | heapObjects=8187 | GC次数=0
+[已创建 3000] goroutines=3001 | heapAlloc=2.22 MB | heapSys=5.88 MB | heapObjects=12274 | GC次数=0
+[已创建 4000] goroutines=4001 | heapAlloc=2.86 MB | heapSys=7.91 MB | heapObjects=16288 | GC次数=0
+[已创建 5000] goroutines=5001 | heapAlloc=3.57 MB | heapSys=9.78 MB | heapObjects=20352 | GC次数=0
+[已创建 6000] goroutines=6001 | heapAlloc=3.79 MB | heapSys=11.66 MB | heapObjects=14322 | GC次数=1
+[已创建 7000] goroutines=7001 | heapAlloc=4.51 MB | heapSys=9.72 MB | heapObjects=18326 | GC次数=1
+[已创建 8000] goroutines=8001 | heapAlloc=5.16 MB | heapSys=7.75 MB | heapObjects=22338 | GC次数=1
+[已创建 9000] goroutines=9001 | heapAlloc=5.88 MB | heapSys=9.81 MB | heapObjects=26334 | GC次数=1
+[已创建 10000] goroutines=10001 | heapAlloc=6.57 MB | heapSys=11.84 MB | heapObjects=30355 | GC次数=1
+[已创建 11000] goroutines=11001 | heapAlloc=7.12 MB | heapSys=9.84 MB | heapObjects=33913 | GC次数=1
+[已创建 12000] goroutines=12001 | heapAlloc=7.38 MB | heapSys=15.75 MB | heapObjects=27470 | GC次数=2
+[已创建 13000] goroutines=13001 | heapAlloc=8.06 MB | heapSys=13.84 MB | heapObjects=31449 | GC次数=2
+[已创建 14000] goroutines=14001 | heapAlloc=8.73 MB | heapSys=11.88 MB | heapObjects=35487 | GC次数=2
+[已创建 15000] goroutines=15001 | heapAlloc=9.46 MB | heapSys=13.94 MB | heapObjects=39495 | GC次数=2
+[已创建 16000] goroutines=16001 | heapAlloc=10.18 MB | heapSys=15.97 MB | heapObjects=43503 | GC次数=2
+[已创建 17000] goroutines=17001 | heapAlloc=10.77 MB | heapSys=14.03 MB | heapObjects=47484 | GC次数=2
+[已创建 18000] goroutines=18001 | heapAlloc=11.41 MB | heapSys=16.06 MB | heapObjects=51515 | GC次数=2
+[已创建 19000] goroutines=19001 | heapAlloc=12.28 MB | heapSys=18.12 MB | heapObjects=55520 | GC次数=2
+[已创建 20000] goroutines=20001 | heapAlloc=12.87 MB | heapSys=16.16 MB | heapObjects=59533 | GC次数=2
+[已创建 21000] goroutines=21001 | heapAlloc=13.60 MB | heapSys=18.06 MB | heapObjects=63423 | GC次数=2
+[已创建 22000] goroutines=22001 | heapAlloc=13.10 MB | heapSys=20.25 MB | heapObjects=46734 | GC次数=3
+[已创建 23000] goroutines=23001 | heapAlloc=13.69 MB | heapSys=18.31 MB | heapObjects=50737 | GC次数=3
+[已创建 24000] goroutines=24001 | heapAlloc=14.58 MB | heapSys=20.38 MB | heapObjects=54744 | GC次数=3
+[已创建 25000] goroutines=25001 | heapAlloc=15.30 MB | heapSys=22.41 MB | heapObjects=58747 | GC次数=3
+[已创建 26000] goroutines=26001 | heapAlloc=16.02 MB | heapSys=20.47 MB | heapObjects=62751 | GC次数=3
+[已创建 27000] goroutines=27001 | heapAlloc=16.61 MB | heapSys=22.50 MB | heapObjects=66764 | GC次数=3
+[已创建 28000] goroutines=28001 | heapAlloc=17.19 MB | heapSys=24.56 MB | heapObjects=70742 | GC次数=3
+[已创建 29000] goroutines=29001 | heapAlloc=17.88 MB | heapSys=22.59 MB | heapObjects=74773 | GC次数=3
+[已创建 30000] goroutines=30001 | heapAlloc=18.76 MB | heapSys=24.66 MB | heapObjects=78768 | GC次数=3
+[已创建 31000] goroutines=31001 | heapAlloc=19.35 MB | heapSys=26.69 MB | heapObjects=82781 | GC次数=3
+[已创建 32000] goroutines=32001 | heapAlloc=20.21 MB | heapSys=24.75 MB | heapObjects=86795 | GC次数=3
+[已创建 33000] goroutines=33001 | heapAlloc=20.97 MB | heapSys=26.78 MB | heapObjects=90797 | GC次数=3
+[已创建 34000] goroutines=34001 | heapAlloc=21.55 MB | heapSys=28.84 MB | heapObjects=94788 | GC次数=3
+[已创建 35000] goroutines=35001 | heapAlloc=22.14 MB | heapSys=26.88 MB | heapObjects=98788 | GC次数=3
+[已创建 36000] goroutines=36001 | heapAlloc=22.88 MB | heapSys=28.94 MB | heapObjects=102811 | GC次数=3
+[已创建 37000] goroutines=37001 | heapAlloc=23.48 MB | heapSys=30.97 MB | heapObjects=106828 | GC次数=3
+[已创建 38000] goroutines=38001 | heapAlloc=24.46 MB | heapSys=29.03 MB | heapObjects=110827 | GC次数=3
+[已创建 39000] goroutines=39001 | heapAlloc=25.07 MB | heapSys=30.88 MB | heapObjects=114858 | GC次数=3
+[已创建 40000] goroutines=40001 | heapAlloc=23.44 MB | heapSys=29.12 MB | heapObjects=83951 | GC次数=4
+[已创建 41000] goroutines=41001 | heapAlloc=24.03 MB | heapSys=27.16 MB | heapObjects=87957 | GC次数=4
+[已创建 42000] goroutines=42001 | heapAlloc=24.61 MB | heapSys=29.22 MB | heapObjects=91956 | GC次数=4
+[已创建 43000] goroutines=43001 | heapAlloc=25.33 MB | heapSys=31.25 MB | heapObjects=95964 | GC次数=4
+[已创建 44000] goroutines=44001 | heapAlloc=26.18 MB | heapSys=33.31 MB | heapObjects=99982 | GC次数=4
+[已创建 45000] goroutines=45001 | heapAlloc=26.84 MB | heapSys=31.34 MB | heapObjects=103978 | GC次数=4
+[已创建 46000] goroutines=46001 | heapAlloc=27.43 MB | heapSys=33.41 MB | heapObjects=107993 | GC次数=4
+[已创建 47000] goroutines=47001 | heapAlloc=28.19 MB | heapSys=35.44 MB | heapObjects=111997 | GC次数=4
+[已创建 48000] goroutines=48001 | heapAlloc=28.78 MB | heapSys=33.50 MB | heapObjects=115998 | GC次数=4
+[已创建 49000] goroutines=49001 | heapAlloc=29.83 MB | heapSys=35.53 MB | heapObjects=120003 | GC次数=4
+[已创建 50000] goroutines=50001 | heapAlloc=30.41 MB | heapSys=37.59 MB | heapObjects=124000 | GC次数=4
+[已创建 51000] goroutines=51001 | heapAlloc=31.17 MB | heapSys=35.62 MB | heapObjects=128014 | GC次数=4
+[已创建 52000] goroutines=52001 | heapAlloc=31.76 MB | heapSys=37.69 MB | heapObjects=132026 | GC次数=4
+[已创建 53000] goroutines=53001 | heapAlloc=32.35 MB | heapSys=39.72 MB | heapObjects=136014 | GC次数=4
+[已创建 54000] goroutines=54001 | heapAlloc=33.22 MB | heapSys=37.78 MB | heapObjects=140029 | GC次数=4
+[已创建 55000] goroutines=55001 | heapAlloc=34.02 MB | heapSys=39.81 MB | heapObjects=144039 | GC次数=4
+[已创建 56000] goroutines=56001 | heapAlloc=34.61 MB | heapSys=41.88 MB | heapObjects=148036 | GC次数=4
+[已创建 57000] goroutines=57001 | heapAlloc=35.20 MB | heapSys=39.91 MB | heapObjects=152050 | GC次数=4
+[已创建 58000] goroutines=58001 | heapAlloc=35.89 MB | heapSys=41.97 MB | heapObjects=156035 | GC次数=4
+[已创建 59000] goroutines=59001 | heapAlloc=36.69 MB | heapSys=44.00 MB | heapObjects=160060 | GC次数=4
+[已创建 60000] goroutines=60001 | heapAlloc=37.28 MB | heapSys=42.06 MB | heapObjects=164065 | GC次数=4
+[已创建 61000] goroutines=61001 | heapAlloc=38.45 MB | heapSys=44.09 MB | heapObjects=168083 | GC次数=4
+[已创建 62000] goroutines=62001 | heapAlloc=39.26 MB | heapSys=46.16 MB | heapObjects=172092 | GC次数=4
+[已创建 63000] goroutines=63001 | heapAlloc=39.84 MB | heapSys=44.19 MB | heapObjects=176089 | GC次数=4
+[已创建 64000] goroutines=64001 | heapAlloc=40.43 MB | heapSys=46.25 MB | heapObjects=180097 | GC次数=4
+[已创建 65000] goroutines=65001 | heapAlloc=41.02 MB | heapSys=48.28 MB | heapObjects=184109 | GC次数=4
+[已创建 66000] goroutines=66001 | heapAlloc=41.60 MB | heapSys=50.34 MB | heapObjects=188102 | GC次数=4
+[已创建 67000] goroutines=67001 | heapAlloc=42.19 MB | heapSys=48.38 MB | heapObjects=192115 | GC次数=4
+[已创建 68000] goroutines=68001 | heapAlloc=43.06 MB | heapSys=50.44 MB | heapObjects=196128 | GC次数=4
+[已创建 69000] goroutines=69001 | heapAlloc=43.65 MB | heapSys=52.47 MB | heapObjects=200126 | GC次数=4
+[已创建 70000] goroutines=70001 | heapAlloc=44.52 MB | heapSys=50.53 MB | heapObjects=204129 | GC次数=4
+[已创建 71000] goroutines=71001 | heapAlloc=45.07 MB | heapSys=52.47 MB | heapObjects=207781 | GC次数=4
+[已创建 72000] goroutines=72001 | heapAlloc=45.62 MB | heapSys=54.53 MB | heapObjects=211308 | GC次数=4
+[已创建 73000] goroutines=73001 | heapAlloc=42.86 MB | heapSys=52.62 MB | heapObjects=151471 | GC次数=5
+[已创建 74000] goroutines=74001 | heapAlloc=43.45 MB | heapSys=50.72 MB | heapObjects=155474 | GC次数=5
+[已创建 75000] goroutines=75001 | heapAlloc=44.03 MB | heapSys=48.75 MB | heapObjects=159483 | GC次数=5
+[已创建 76000] goroutines=76001 | heapAlloc=45.35 MB | heapSys=50.81 MB | heapObjects=163483 | GC次数=5
+[已创建 77000] goroutines=77001 | heapAlloc=45.94 MB | heapSys=52.84 MB | heapObjects=167494 | GC次数=5
+[已创建 78000] goroutines=78001 | heapAlloc=46.52 MB | heapSys=54.91 MB | heapObjects=171485 | GC次数=5
+[已创建 79000] goroutines=79001 | heapAlloc=47.11 MB | heapSys=52.94 MB | heapObjects=175489 | GC次数=5
+[已创建 80000] goroutines=80001 | heapAlloc=47.71 MB | heapSys=55.00 MB | heapObjects=179504 | GC次数=5
+[已创建 81000] goroutines=81001 | heapAlloc=48.30 MB | heapSys=57.03 MB | heapObjects=183509 | GC次数=5
+[已创建 82000] goroutines=82001 | heapAlloc=48.89 MB | heapSys=55.09 MB | heapObjects=187515 | GC次数=5
+[已创建 83000] goroutines=83001 | heapAlloc=49.84 MB | heapSys=57.12 MB | heapObjects=191519 | GC次数=5
+[已创建 84000] goroutines=84001 | heapAlloc=50.42 MB | heapSys=59.19 MB | heapObjects=195522 | GC次数=5
+[已创建 85000] goroutines=85001 | heapAlloc=51.37 MB | heapSys=61.22 MB | heapObjects=199515 | GC次数=5
+[已创建 86000] goroutines=86001 | heapAlloc=52.01 MB | heapSys=59.28 MB | heapObjects=203536 | GC次数=5
+[已创建 87000] goroutines=87001 | heapAlloc=52.60 MB | heapSys=61.31 MB | heapObjects=207551 | GC次数=5
+[已创建 88000] goroutines=88001 | heapAlloc=53.47 MB | heapSys=63.38 MB | heapObjects=211543 | GC次数=5
+[已创建 89000] goroutines=89001 | heapAlloc=54.06 MB | heapSys=61.41 MB | heapObjects=215564 | GC次数=5
+[已创建 90000] goroutines=90001 | heapAlloc=54.64 MB | heapSys=63.47 MB | heapObjects=219561 | GC次数=5
+[已创建 91000] goroutines=91001 | heapAlloc=55.23 MB | heapSys=61.50 MB | heapObjects=223552 | GC次数=5
+[已创建 92000] goroutines=92001 | heapAlloc=55.82 MB | heapSys=63.56 MB | heapObjects=227578 | GC次数=5
+[已创建 93000] goroutines=93001 | heapAlloc=56.41 MB | heapSys=65.59 MB | heapObjects=231578 | GC次数=5
+[已创建 94000] goroutines=94001 | heapAlloc=56.99 MB | heapSys=63.66 MB | heapObjects=235587 | GC次数=5
+[已创建 95000] goroutines=95001 | heapAlloc=57.58 MB | heapSys=65.69 MB | heapObjects=239588 | GC次数=5
+[已创建 96000] goroutines=96001 | heapAlloc=59.08 MB | heapSys=67.75 MB | heapObjects=243590 | GC次数=5
+[已创建 97000] goroutines=97001 | heapAlloc=60.12 MB | heapSys=69.78 MB | heapObjects=247597 | GC次数=5
+[已创建 98000] goroutines=98001 | heapAlloc=60.71 MB | heapSys=67.84 MB | heapObjects=251602 | GC次数=5
+[已创建 99000] goroutines=99001 | heapAlloc=61.30 MB | heapSys=69.88 MB | heapObjects=255613 | GC次数=5
+[已创建 100000] goroutines=100001 | heapAlloc=61.89 MB | heapSys=71.94 MB | heapObjects=259617 | GC次数=5
+
+=== 所有 goroutine 已创建，等待完成 ===
+
+=== 实验结束 ===
+[结束] goroutines=1 | heapAlloc=61.89 MB | heapSys=72.16 MB | heapObjects=259626 | GC次数=5

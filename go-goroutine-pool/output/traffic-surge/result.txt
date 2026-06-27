@@ -1,0 +1,16 @@
+=== 突发流量模拟（长任务版）===
+请求数量：5000，每个处理约 10ms
+池大小：50 workers
+Go 版本：go1.26.4
+
+--- 场景 1：无限制直接 go func() ---
+  [完成 (耗时 30ms)] goroutines=1 | heapAlloc=2.9MB | heapSys=26.2MB | GC=1 | pauseTotal=0.5ms
+  [GC 后] goroutines=1 | heapAlloc=2.3MB | heapSys=26.5MB | GC=2 | pauseTotal=0.5ms
+
+--- 场景 2：��程池限流 ---
+  [完成 (耗时 1095ms)] goroutines=1 | heapAlloc=2.3MB | heapSys=26.5MB | GC=3 | pauseTotal=0.7ms
+  [GC 后] goroutines=1 | heapAlloc=2.3MB | heapSys=26.5MB | GC=4 | pauseTotal=0.8ms
+
+=== 对比总结 ===
+直接 go func() | 耗时: 30ms | 峰值内存: 2.6MB
+协程池限流     | 耗时: 1095ms | 峰值内存: 1.9MB

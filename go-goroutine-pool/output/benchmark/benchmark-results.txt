@@ -1,0 +1,27 @@
+goos: darwin
+goarch: arm64
+pkg: evidence/inline-boundary/articles/go-goroutine-pool/evidence/code/benchmark
+cpu: Apple M4 Pro
+BenchmarkCPUDirect10-14       	       1	     66708 ns/op	    5072 B/op	      22 allocs/op
+BenchmarkCPUPool10-14         	       1	     43959 ns/op	    4776 B/op	      24 allocs/op
+BenchmarkCPUDirect100-14      	       1	    112375 ns/op	   55928 B/op	     206 allocs/op
+BenchmarkCPUPool100-14        	       1	    101375 ns/op	    6480 B/op	      17 allocs/op
+BenchmarkCPUDirect1000-14     	       1	    566958 ns/op	  287696 B/op	    1501 allocs/op
+BenchmarkCPUPool1000-14       	       1	    593958 ns/op	    8456 B/op	      11 allocs/op
+BenchmarkCPUDirect10000-14    	       1	   4883541 ns/op	 1438824 B/op	   12382 allocs/op
+BenchmarkCPUPool10000-14      	       1	   6113250 ns/op	   82408 B/op	      13 allocs/op
+BenchmarkIODirect10-14        	       1	    271292 ns/op	     368 B/op	      12 allocs/op
+BenchmarkIOPool10-14          	       1	    273000 ns/op	     456 B/op	      12 allocs/op
+BenchmarkIODirect100-14       	       1	   1469791 ns/op	    2416 B/op	     101 allocs/op
+BenchmarkIOPool100-14         	       1	   2261875 ns/op	    1272 B/op	      12 allocs/op
+BenchmarkIODirect1000-14      	       1	  15270458 ns/op	   24128 B/op	    1002 allocs/op
+BenchmarkIOPool1000-14        	       1	  18147209 ns/op	    8584 B/op	      13 allocs/op
+BenchmarkIODirect10000-14     	       1	 125434709 ns/op	 2358832 B/op	   14111 allocs/op
+BenchmarkIOPool10000-14       	       1	 163415750 ns/op	   82184 B/op	      11 allocs/op
+BenchmarkPoolWorkers1-14      	       1	   2674208 ns/op	    8344 B/op	       4 allocs/op
+BenchmarkPoolWorkers4-14      	       1	    793375 ns/op	    8392 B/op	       7 allocs/op
+BenchmarkPoolWorkers8-14      	       1	    650208 ns/op	    8456 B/op	      11 allocs/op
+BenchmarkPoolWorkers16-14     	       1	    595333 ns/op	    9256 B/op	      25 allocs/op
+BenchmarkPoolWorkers32-14     	       1	    547459 ns/op	    8840 B/op	      35 allocs/op
+PASS
+ok  	evidence/inline-boundary/articles/go-goroutine-pool/evidence/code/benchmark	0.928s
