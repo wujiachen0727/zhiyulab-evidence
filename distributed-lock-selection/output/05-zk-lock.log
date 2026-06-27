@@ -1,0 +1,41 @@
+2026/05/31 16:29:50 connected to 127.0.0.1:2181
+2026/05/31 16:29:50 authenticated: id=72064279602331648, timeout=5000
+2026/05/31 16:29:50 re-submitting `0` credentials after reconnect
+2026/05/31 16:29:50 recv loop terminated: EOF
+2026/05/31 16:29:50 send loop terminated: <nil>
+2026/05/31 16:29:50 connected to 127.0.0.1:2181
+2026/05/31 16:29:50 authenticated: id=72064279602331649, timeout=5000
+2026/05/31 16:29:50 re-submitting `0` credentials after reconnect
+[T+ 0.03s][C1] 创建顺序节点 lock-0000000000
+[T+ 0.04s][C1] 🟢 我是序号最小（lock-0000000000）→ 持锁
+[T+ 0.04s][C1] 业务工作 700ms
+2026/05/31 16:29:51 connected to 127.0.0.1:2181
+2026/05/31 16:29:51 authenticated: id=72064279602331650, timeout=5000
+2026/05/31 16:29:51 re-submitting `0` credentials after reconnect
+[T+ 0.23s][C2] 创建顺序节点 lock-0000000001
+[T+ 0.23s][C2] Watch 前驱节点 lock-0000000000（我是 lock-0000000001）
+2026/05/31 16:29:51 connected to 127.0.0.1:2181
+2026/05/31 16:29:51 authenticated: id=72064279602331651, timeout=5000
+2026/05/31 16:29:51 re-submitting `0` credentials after reconnect
+[T+ 0.43s][C3] 创建顺序节点 lock-0000000002
+[T+ 0.43s][C3] Watch 前驱节点 lock-0000000001（我是 lock-0000000002）
+[T+ 0.74s][C2] 收到前驱 lock-0000000000 删除事件，重新检查序列
+[T+ 0.74s][C1] 🔓 已释放锁（删除 lock-0000000000）
+[T+ 0.74s][C2] 🟢 我是序号最小（lock-0000000001）→ 持锁
+[T+ 0.74s][C2] 业务工作 900ms
+2026/05/31 16:29:51 recv loop terminated: EOF
+2026/05/31 16:29:51 send loop terminated: <nil>
+[T+ 1.64s][C2] 🔓 已释放锁（删除 lock-0000000001）
+[T+ 1.65s][C3] 收到前驱 lock-0000000001 删除事件，重新检查序列
+[T+ 1.65s][C3] 🟢 我是序号最小（lock-0000000002）→ 持锁
+[T+ 1.65s][C3] 业务工作 1.1s
+2026/05/31 16:29:52 recv loop terminated: EOF
+2026/05/31 16:29:52 send loop terminated: <nil>
+[T+ 2.75s][C3] 🔓 已释放锁（删除 lock-0000000002）
+2026/05/31 16:29:53 recv loop terminated: EOF
+2026/05/31 16:29:53 send loop terminated: <nil>
+
+=== 实验结论 ===
+- 三个 client 按 EPHEMERAL_SEQUENTIAL 序号依次拿锁
+- 持锁者主动释放（或 session 断）→ 后继者立即被通知（Watch 前驱）
+- 序号本身就是单调递增 token——天然带 fencing

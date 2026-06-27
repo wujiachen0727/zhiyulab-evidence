@@ -1,0 +1,24 @@
+goos: darwin
+goarch: arm64
+pkg: json-bench
+cpu: Apple M4 Pro
+BenchmarkMarshal_StdV1-14         	 1467216	       811.6 ns/op	     704 B/op	       1 allocs/op
+BenchmarkMarshal_StdV1-14         	 1554792	       767.0 ns/op	     704 B/op	       1 allocs/op
+BenchmarkMarshal_StdV1-14         	 1575403	       785.3 ns/op	     704 B/op	       1 allocs/op
+BenchmarkUnmarshal_StdV1-14       	  272139	      4244 ns/op	     896 B/op	      23 allocs/op
+BenchmarkUnmarshal_StdV1-14       	  286578	      4148 ns/op	     896 B/op	      23 allocs/op
+BenchmarkUnmarshal_StdV1-14       	  290013	      4184 ns/op	     896 B/op	      23 allocs/op
+BenchmarkMarshal_Jsoniter-14      	  727172	      1639 ns/op	     712 B/op	       2 allocs/op
+BenchmarkMarshal_Jsoniter-14      	  701319	      1681 ns/op	     712 B/op	       2 allocs/op
+BenchmarkMarshal_Jsoniter-14      	  730254	      1633 ns/op	     712 B/op	       2 allocs/op
+BenchmarkUnmarshal_Jsoniter-14    	  901495	      1306 ns/op	    1040 B/op	      49 allocs/op
+BenchmarkUnmarshal_Jsoniter-14    	  926893	      1308 ns/op	    1040 B/op	      49 allocs/op
+BenchmarkUnmarshal_Jsoniter-14    	  865935	      1337 ns/op	    1040 B/op	      49 allocs/op
+BenchmarkMarshal_Sonic-14         	 1000000	      1037 ns/op	     725 B/op	       2 allocs/op
+BenchmarkMarshal_Sonic-14         	 1000000	      1050 ns/op	     726 B/op	       2 allocs/op
+BenchmarkMarshal_Sonic-14         	 1000000	      1022 ns/op	     724 B/op	       2 allocs/op
+BenchmarkUnmarshal_Sonic-14       	 1000000	      1093 ns/op	    1487 B/op	       4 allocs/op
+BenchmarkUnmarshal_Sonic-14       	 1000000	      1126 ns/op	    1546 B/op	       4 allocs/op
+BenchmarkUnmarshal_Sonic-14       	 1000000	      1077 ns/op	    1495 B/op	       4 allocs/op
+PASS
+ok  	json-bench	23.910s

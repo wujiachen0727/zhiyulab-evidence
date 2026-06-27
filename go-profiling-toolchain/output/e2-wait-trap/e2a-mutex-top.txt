@@ -1,0 +1,13 @@
+=== E2a Mutex Profile Top ===
+执行时间: 2026-04-19 07:57:50
+
+File: main
+Type: delay
+Time: 2026-04-19 07:55:42 CST
+Showing nodes accounting for 64.05s, 100% of 64.05s total
+Dropped 34 nodes (cum <= 0.32s)
+      flat  flat%   sum%        cum   cum%
+    64.05s   100%   100%     64.05s   100%  sync.(*Mutex).Unlock
+         0     0%   100%     64.05s   100%  main.(*shared).incrementHeavy
+         0     0%   100%     64.05s   100%  main.runWorkload.func1
+         0     0%   100%     64.05s   100%  main.runWorkload.gowrap1

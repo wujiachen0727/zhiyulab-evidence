@@ -1,0 +1,18 @@
+[T+ 0.00s] === E3 主从切换丢锁实验开始 ===
+[T+ 0.01s] ✅ 主从关系建立：master=127.0.0.1:6379, replica=127.0.0.1:6380
+[T+ 0.01s] 🔌 replica 提前断开复制（模拟最坏复制延迟）
+[T+ 0.01s][A] master.SETNX → true (TTL=30s)
+[T+ 0.01s]    （replica 已断开复制，这条写入不会到达 replica）
+redis: 2026/05/31 16:24:32 pool.go:715: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:6379: connect: connection refused
+redis: 2026/05/31 16:24:33 pool.go:715: redis: connection pool: failed to dial after 5 attempts: dial tcp 127.0.0.1:6379: connect: connection refused
+[T+ 0.95s] 💥 旧 master 已关闭
+[T+ 1.16s] ⚠️  新 master 上 GET order:1003:lock → 不存在（锁丢了！）
+[T+ 1.16s][B] new_master.SETNX → true
+
+=== 实验结果 ===
+❌ 锁互斥被破坏：client_A 和 client_B 同时认为自己持有 "order:1003:lock"
+根因：异步复制 + 故障切换之间存在窗口，未复制的写入在 failover 后丢失
+修复方向：
+  1) min-replicas-to-write 配置：要求至少 N 个 replica ack 才算写成功（牺牲可用性换一致性）
+  2) Redlock：N 个独立 master 投票，过半才算获锁（antirez 方案）
+  3) 改用 etcd/ZK：基于 raft/zab 的强一致复制，不存在异步丢数据

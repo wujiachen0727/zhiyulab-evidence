@@ -1,0 +1,59 @@
+╔══════════════════════════════════════════════════════════════╗
+║  架构分层 Linter 实验: go/ast vs go/types                  ║
+║  规则: Handler 层禁止直接调用 Repository 层                ║
+╚══════════════════════════════════════════════════════════════╝
+
+测试目录: /Users/wujiachen/WriteCraft/articles/go-custom-linter/evidence/code/architecture-linter/testdata
+
+━━━ 测试场景 ━━━
+  1. HandleDeleteUser_ViolationDirect  — 直接调用 repo.UserRepo{}（带 import alias）
+  2. HandleGetUser_ViolationField      — 通过 struct 字段 h.repoObj 调用
+  3. HandleGetUser_ViolationInterface   — 通过接口字段 h.repoIntf 调用（go/ast 盲区）
+  4. HandleGetUser_Compliant            — 合规: 通过 service 层调用
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=== 纯 go/ast 方案检测结果 ===
+
+  [1] user_handler.go:48:13
+      启发式检测: 字段 repoObj 名称含 'repo'（不确定是否真的是 repository 调用）
+
+⚠️  go/ast 的局限性:
+  - 依赖字符串匹配 import alias/字段名，alias 改变就失效
+  - 无法检测通过接口变量（如 h.repoIntf）的 repository 调用
+  - 启发式匹配（靠字段名猜）既有漏检又有误报
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+=== go/ast + go/types 方案检测结果 ===
+
+  [1] user_handler.go:42:6
+      handler 直接调用 repository 层: repository.DeleteByID() [field-indirect]
+      包路径: example.com/testdata/repository | 检测方式: field-indirect
+  [2] user_handler.go:48:13
+      handler 直接调用 repository 层: repository.FindByID() [field-indirect]
+      包路径: example.com/testdata/repository | 检测方式: field-indirect
+  [3] user_handler.go:56:13
+      handler 直接调用 repository 层: repository.FindByID() [interface]
+      包路径: example.com/testdata/repository | 检测方式: interface
+
+✅ go/types 的优势:
+  - 基于包路径精确判断，不依赖 import alias 或变量命名
+  - 能追踪接口变量的底层类型，检测间接调用
+  - 零误报：只有真正调用了 repository 包的代码才会被标记
+
+━━━ 对比总结 ━━━
+
+  实际违规调用: 3 处（案例 1、2、3）
+  go/ast  检出: 1 处
+  go/types 检出: 3 处
+
+  go/types 多检出 2 处——这些是 go/ast 的盲区:
+    - user_handler.go:42 DeleteByID [field-indirect]
+    - user_handler.go:56 FindByID [interface]
+
+━━━ 结论 ━━━
+
+  纯 go/ast 只能做字符串级匹配（import alias + 变量名启发式），
+  存在漏检（接口调用）和误报（名字碰巧匹配）的双重风险。
+
+  go/types 通过类型系统追踪每个调用的真实目标包路径，
+  不受 alias、接口、中间变量的影响——这才是 production-ready 的方案。

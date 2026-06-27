@@ -1,0 +1,20 @@
+=== E3 Group B: 窗口 5（20-25s）===
+
+File: main
+Type: cpu
+Time: 2026-04-19 08:04:29 CST
+Duration: 5.10s, Total samples = 15.53s (304.36%)
+Showing nodes accounting for 15.05s, 96.91% of 15.53s total
+Dropped 140 nodes (cum <= 0.08s)
+Showing top 10 nodes out of 62
+      flat  flat%   sum%        cum   cum%
+     9.63s 62.01% 62.01%      9.63s 62.01%  syscall.rawsyscalln
+     1.91s 12.30% 74.31%      1.91s 12.30%  runtime.usleep
+     1.08s  6.95% 81.26%      1.08s  6.95%  runtime.kevent
+     0.89s  5.73% 86.99%      0.89s  5.73%  runtime.pthread_cond_wait
+     0.81s  5.22% 92.21%      0.81s  5.22%  main.processFastPath
+     0.66s  4.25% 96.46%      0.66s  4.25%  runtime.pthread_cond_signal
+     0.04s  0.26% 96.72%      1.60s 10.30%  runtime.stealWork
+     0.01s 0.064% 96.78%      0.09s  0.58%  net/http.readRequest
+     0.01s 0.064% 96.84%      0.15s  0.97%  runtime.newproc.func1
+     0.01s 0.064% 96.91%      0.83s  5.34%  runtime.notesleep

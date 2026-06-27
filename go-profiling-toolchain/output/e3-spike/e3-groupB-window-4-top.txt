@@ -1,0 +1,20 @@
+=== E3 Group B: 窗口 4（15-20s）===
+
+File: main
+Type: cpu
+Time: 2026-04-19 08:04:24 CST
+Duration: 5.11s, Total samples = 17.06s (334.02%)
+Showing nodes accounting for 16.78s, 98.36% of 17.06s total
+Dropped 107 nodes (cum <= 0.09s)
+Showing top 10 nodes out of 57
+      flat  flat%   sum%        cum   cum%
+    10.47s 61.37% 61.37%     10.47s 61.37%  syscall.rawsyscalln
+     2.81s 16.47% 77.84%      3.44s 20.16%  main.processSlowPath
+     0.89s  5.22% 83.06%      0.89s  5.22%  runtime.usleep
+     0.65s  3.81% 86.87%      0.65s  3.81%  runtime.asyncPreempt
+     0.63s  3.69% 90.56%      0.63s  3.69%  runtime.kevent
+     0.51s  2.99% 93.55%      0.53s  3.11%  main.processFastPath
+     0.50s  2.93% 96.48%      0.50s  2.93%  runtime.pthread_cond_wait
+     0.30s  1.76% 98.24%      0.30s  1.76%  runtime.pthread_cond_signal
+     0.02s  0.12% 98.36%      0.64s  3.75%  runtime.stealWork
+         0     0% 98.36%      2.76s 16.18%  bufio.(*Reader).Peek

@@ -1,0 +1,63 @@
+goos: darwin
+goarch: arm64
+pkg: logging-benchmarks
+cpu: Apple M4 Pro
+BenchmarkSlogDisabledLevel-14         	215665346	         5.518 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogDisabledLevel-14         	220766710	         5.555 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogDisabledLevel-14         	219833215	         5.578 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZapDisabledLevel-14          	37389826	        37.69 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapDisabledLevel-14          	36922650	        38.62 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapDisabledLevel-14          	29082770	        38.81 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapSugarDisabledLevel-14     	251493043	         4.579 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZapSugarDisabledLevel-14     	264373908	         4.644 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZapSugarDisabledLevel-14     	259761601	         4.604 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZerologDisabledLevel-14      	304783674	         3.912 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZerologDisabledLevel-14      	306100388	         3.861 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZerologDisabledLevel-14      	308943198	         3.912 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogJSON-14                  	 2822097	       427.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogJSON-14                  	 2823380	       420.9 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogJSON-14                  	 2830838	       427.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogText-14                  	 2563586	       457.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogText-14                  	 2613336	       464.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogText-14                  	 2598117	       470.1 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZapJSON-14                   	 4285840	       274.9 ns/op	     256 B/op	       1 allocs/op
+BenchmarkZapJSON-14                   	 4363136	       278.3 ns/op	     256 B/op	       1 allocs/op
+BenchmarkZapJSON-14                   	 4342161	       290.2 ns/op	     256 B/op	       1 allocs/op
+BenchmarkZapConsole-14                	 2768713	       433.5 ns/op	     321 B/op	       4 allocs/op
+BenchmarkZapConsole-14                	 3013813	       392.8 ns/op	     321 B/op	       4 allocs/op
+BenchmarkZapConsole-14                	 3063159	       426.5 ns/op	     321 B/op	       4 allocs/op
+BenchmarkZerologJSON-14               	15594735	        77.36 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZerologJSON-14               	15351992	        75.64 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZerologJSON-14               	15674662	        80.00 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsEveryCall-14       	 2570146	       468.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsEveryCall-14       	 2544400	       463.8 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsEveryCall-14       	 2464749	       475.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsWithPrebound-14    	 3428316	       349.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsWithPrebound-14    	 3406315	       349.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsWithPrebound-14    	 3401960	       351.3 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsContext-14         	 3430076	       349.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsContext-14         	 3419666	       349.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogFieldsContext-14         	 3375218	       351.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkZapFieldsEveryCall-14        	 3765477	       308.6 ns/op	     320 B/op	       1 allocs/op
+BenchmarkZapFieldsEveryCall-14        	 3786598	       309.1 ns/op	     320 B/op	       1 allocs/op
+BenchmarkZapFieldsEveryCall-14        	 3912530	       303.1 ns/op	     320 B/op	       1 allocs/op
+BenchmarkZapFieldsWithPrebound-14     	 5259502	       228.1 ns/op	     128 B/op	       1 allocs/op
+BenchmarkZapFieldsWithPrebound-14     	 5269868	       229.4 ns/op	     128 B/op	       1 allocs/op
+BenchmarkZapFieldsWithPrebound-14     	 5283969	       237.4 ns/op	     128 B/op	       1 allocs/op
+BenchmarkZapSyncWrite-14              	 4345078	       274.6 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapSyncWrite-14              	 4572542	       262.2 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapSyncWrite-14              	 4655322	       259.6 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapBufferedWrite-14          	 4525750	       266.8 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapBufferedWrite-14          	 4602452	       261.8 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapBufferedWrite-14          	 4621389	       262.0 ns/op	     192 B/op	       1 allocs/op
+BenchmarkZapDefault-14                	 2163285	       552.6 ns/op	     481 B/op	       3 allocs/op
+BenchmarkZapDefault-14                	 2168982	       558.1 ns/op	     481 B/op	       3 allocs/op
+BenchmarkZapDefault-14                	 2174007	       554.5 ns/op	     481 B/op	       3 allocs/op
+BenchmarkZapOptimized-14              	 4971338	       240.6 ns/op	     128 B/op	       1 allocs/op
+BenchmarkZapOptimized-14              	 4949388	       240.2 ns/op	     128 B/op	       1 allocs/op
+BenchmarkZapOptimized-14              	 4839715	       247.2 ns/op	     128 B/op	       1 allocs/op
+BenchmarkSlogDefault-14               	 3034881	       397.4 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogDefault-14               	 3023029	       395.6 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSlogDefault-14               	 3037467	       405.1 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	logging-benchmarks	89.403s

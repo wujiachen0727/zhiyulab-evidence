@@ -1,0 +1,225 @@
+# E6 迁移示例：手动 DI → Wire
+
+[实测 Go 1.26.2, Wire v0.7.0]
+
+## 迁移前：手动 DI
+
+```go
+// main.go — 手动 DI 版本
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+// --- 定义层 ---
+
+type Config struct {
+    DSN      string
+    Port     int
+}
+
+type Logger struct{}
+
+func (l *Logger) Info(msg string)  { fmt.Println("[INFO]", msg) }
+func (l *Logger) Error(msg string) { fmt.Println("[ERROR]", msg) }
+
+type DB struct {
+    cfg    *Config
+    logger *Logger
+}
+
+func NewDB(cfg *Config, logger *Logger) *DB {
+    return &DB{cfg: cfg, logger: logger}
+}
+
+func (db *DB) Query(sql string) string {
+    return "result"
+}
+
+type Cache struct {
+    cfg *Config
+}
+
+func NewCache(cfg *Config) *Cache {
+    return &Cache{cfg: cfg}
+}
+
+type UserRepository struct {
+    db    *DB
+    cache *Cache
+}
+
+func NewUserRepository(db *DB, cache *Cache) *UserRepository {
+    return &UserRepository{db: db, cache: cache}
+}
+
+type UserService struct {
+    repo   *UserRepository
+    logger *Logger
+}
+
+func NewUserService(repo *UserRepository, logger *Logger) *UserService {
+    return &UserService{repo: repo, logger: logger}
+}
+
+type AuthHandler struct {
+    userService *UserService
+    logger      *Logger
+}
+
+func NewAuthHandler(userService *UserService, logger *Logger) *AuthHandler {
+    return &AuthHandler{userService: userService, logger: logger}
+}
+
+func (h *AuthHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+    fmt.Fprintf(w, "auth handler")
+}
+
+// --- 组装层（这就是痛点所在） ---
+
+func main() {
+    cfg := &Config{DSN: "postgres://localhost:5432/mydb", Port: 8080}
+    logger := &Logger{}
+    db := NewDB(cfg, logger)
+    cache := NewCache(cfg)
+    repo := NewUserRepository(db, cache)
+    userService := NewUserService(repo, logger)
+    authHandler := NewAuthHandler(userService, logger)
+
+    logger.Info(fmt.Sprintf("Server starting on :%d", cfg.Port))
+    http.Handle("/auth", authHandler)
+    http.ListenAndServe(fmt.Sprintf(":%d", cfg.Port), nil)
+}
+```
+
+**问题**：所有组装代码在 main() 里，顺序不能错，每加一个依赖就要改 main()。
+
+## 迁移步骤
+
+### Step 1：拆分 provider 到独立文件
+
+把构造函数声明移到 `provider.go`（类型定义和构造函数放一起）：
+
+```go
+// provider.go
+package main
+
+// Config
+func NewConfig() *Config {
+    return &Config{DSN: "postgres://localhost:5432/mydb", Port: 8080}
+}
+
+// Logger
+func NewLogger() *Logger {
+    return &Logger{}
+}
+
+// DB
+func NewDB(cfg *Config, logger *Logger) *DB {
+    return &DB{cfg: cfg, logger: logger}
+}
+
+// Cache
+func NewCache(cfg *Config) *Cache {
+    return &Cache{cfg: cfg}
+}
+
+// Repository
+func NewUserRepository(db *DB, cache *Cache) *UserRepository {
+    return &UserRepository{db: db, cache: cache}
+}
+
+// Service
+func NewUserService(repo *UserRepository, logger *Logger) *UserService {
+    return &UserService{repo: repo, logger: logger}
+}
+
+// Handler
+func NewAuthHandler(userService *UserService, logger *Logger) *AuthHandler {
+    return &AuthHandler{userService: userService, logger: logger}
+}
+```
+
+### Step 2：添加 wire.go
+
+```go
+// wire.go
+//go:build wireinject
+
+package main
+
+import "github.com/google/wire"
+
+func InitializeApp() *App {
+    wire.Build(
+        NewConfig,
+        NewLogger,
+        NewDB,
+        NewCache,
+        NewUserRepository,
+        NewUserService,
+        NewAuthHandler,
+        NewApp,
+    )
+    return nil
+}
+```
+
+### Step 3：简化 main.go
+
+```go
+// main.go — Wire 版本
+package main
+
+import (
+    "fmt"
+    "net/http"
+)
+
+type App struct {
+    cfg    *Config
+    logger *Logger
+    handler *AuthHandler
+}
+
+func NewApp(cfg *Config, logger *Logger, handler *AuthHandler) *App {
+    return &App{cfg: cfg, logger: logger, handler: handler}
+}
+
+func (a *App) Run() {
+    a.logger.Info(fmt.Sprintf("Server starting on :%d", a.cfg.Port))
+    http.Handle("/auth", a.handler)
+    http.ListenAndServe(fmt.Sprintf(":%d", a.cfg.Port), nil)
+}
+
+func main() {
+    app := InitializeApp()
+    app.Run()
+}
+```
+
+### Step 4：运行 wire generate
+
+```bash
+$ wire
+# 自动生成 wire_gen.go
+```
+
+## 迁移统计
+
+| 指标 | 迁移前（手动 DI） | 迁移后（Wire） | 变化 |
+|------|:---------------:|:------------:|:----:|
+| main() 行数 | 10 行组装 | 2 行调用 | -80% |
+| 修改一个依赖需改文件数 | 1（main.go） | 1-2（provider.go + wire.go） | 持平 |
+| 新增依赖需改文件数 | 1（main.go） | 1-2（provider 文件 + wire.go） | 持平 |
+| 新增依赖的冲突概率 | 高（改同一个 main.go） | 低（改不同 provider 文件） | ↓ |
+| 编译时依赖检查 | ❌ | ✅ | ↑ |
+
+## 关键洞察
+
+1. **迁移不是重写**——只是把 `main()` 里的手动组装替换为 Wire 声明，业务代码零改动
+2. **迁移后 main.go 从 10 行变 2 行**——组装逻辑由 Wire 生成
+3. **新增依赖的流程变化**：从"在 main() 里加一行 NewXxx"变成"在 provider 文件加 NewXxx + 在 wire.Build 里注册"
+4. **wire.Build 的 provider 列表就是依赖图的声明式表示**——一目了然，不需要读代码推演

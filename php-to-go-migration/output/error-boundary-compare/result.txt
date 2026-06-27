@@ -1,0 +1,17 @@
+[实测环境]
+go version go1.26.2 darwin/arm64
+PHP 8.4.21 (cli) (built: May 19 2026 23:08:50) (NTS)
+
+[PHP weak types]
+{
+    "user_id_type": "integer",
+    "user_id": 42,
+    "email_type": "string",
+    "email": "123"
+}
+
+[PHP strict_types=1]
+TypeError: findUser(): Argument #1 ($userId) must be of type int, string given, called in /work/php_strict.php on line 18
+
+[Go JSON struct decode]
+decode error: *json.UnmarshalTypeError: json: cannot unmarshal string into Go struct field UserPayload.user_id of type int

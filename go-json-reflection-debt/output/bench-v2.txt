@@ -1,0 +1,12 @@
+goos: darwin
+goarch: arm64
+pkg: json-bench
+cpu: Apple M4 Pro
+BenchmarkMarshal_StdV2-14      	 1000000	      1062 ns/op	     704 B/op	       1 allocs/op
+BenchmarkMarshal_StdV2-14      	 1000000	      1110 ns/op	     704 B/op	       1 allocs/op
+BenchmarkMarshal_StdV2-14      	 1000000	      1064 ns/op	     704 B/op	       1 allocs/op
+BenchmarkUnmarshal_StdV2-14    	  695461	      1794 ns/op	     432 B/op	       3 allocs/op
+BenchmarkUnmarshal_StdV2-14    	  709446	      1755 ns/op	     432 B/op	       3 allocs/op
+BenchmarkUnmarshal_StdV2-14    	  699919	      1759 ns/op	     432 B/op	       3 allocs/op
+PASS
+ok  	json-bench	7.756s

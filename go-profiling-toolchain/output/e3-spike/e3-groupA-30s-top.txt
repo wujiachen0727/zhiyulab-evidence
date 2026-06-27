@@ -1,0 +1,29 @@
+=== E3 Group A: 30 秒单窗口 CPU Profile ===
+执行时间: 2026-04-19
+实测环境: Go 1.26.2 / darwin arm64 / M 系列芯片 / GOMAXPROCS=14
+压测配置: /fast 44598 req/s + /slow 10 QPS
+毛刺窗口: 15-20s（服务端逻辑决定）
+
+File: main
+Type: cpu
+Time: 2026-04-19 08:05:16 CST
+Duration: 30.11s, Total samples = 96.48s (320.41%)
+Showing nodes accounting for 93.99s, 97.42% of 96.48s total
+Dropped 317 nodes (cum <= 0.48s)
+Showing top 15 nodes out of 58
+      flat  flat%   sum%        cum   cum%
+    56.06s 58.11% 58.11%     56.06s 58.11%  syscall.rawsyscalln
+    12.26s 12.71% 70.81%     12.26s 12.71%  runtime.usleep
+     7.15s  7.41% 78.22%      7.15s  7.41%  runtime.kevent
+     6.30s  6.53% 84.75%      6.30s  6.53%  runtime.pthread_cond_wait
+     4.63s  4.80% 89.55%      4.89s  5.07%  main.processSlowPath
+     3.70s  3.83% 93.39%      3.75s  3.89%  main.processFastPath
+     3.54s  3.67% 97.06%      3.54s  3.67%  runtime.pthread_cond_signal
+     0.22s  0.23% 97.28%      9.85s 10.21%  runtime.stealWork
+     0.03s 0.031% 97.32%      3.17s  3.29%  runtime.lock2
+     0.02s 0.021% 97.34%     18.55s 19.23%  net.(*conn).Read
+     0.02s 0.021% 97.36%      6.98s  7.23%  runtime.netpoll
+     0.02s 0.021% 97.38%      9.57s  9.92%  runtime.runqgrab
+     0.02s 0.021% 97.40%     28.59s 29.63%  runtime.schedule
+     0.01s  0.01% 97.41%     37.87s 39.25%  bufio.(*Writer).Flush
+     0.01s  0.01% 97.42%     18.51s 19.19%  internal/poll.(*FD).Read

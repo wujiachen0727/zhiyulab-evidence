@@ -1,0 +1,24 @@
+goos: darwin
+goarch: arm64
+pkg: framing-bench
+cpu: Apple M4 Pro
+BenchmarkEncodeLengthPrefix-14    	94994966	        12.77 ns/op	      64 B/op	       1 allocs/op
+BenchmarkEncodeLengthPrefix-14    	99624680	        12.10 ns/op	      64 B/op	       1 allocs/op
+BenchmarkEncodeLengthPrefix-14    	100000000	        11.97 ns/op	      64 B/op	       1 allocs/op
+BenchmarkEncodeDelimiter-14       	98700444	        11.87 ns/op	      64 B/op	       1 allocs/op
+BenchmarkEncodeDelimiter-14       	87893041	        11.90 ns/op	      64 B/op	       1 allocs/op
+BenchmarkEncodeDelimiter-14       	100000000	        11.82 ns/op	      64 B/op	       1 allocs/op
+BenchmarkEncodeFixedLength-14     	71348409	        16.00 ns/op	     128 B/op	       1 allocs/op
+BenchmarkEncodeFixedLength-14     	74702356	        16.09 ns/op	     128 B/op	       1 allocs/op
+BenchmarkEncodeFixedLength-14     	77079127	        16.21 ns/op	     128 B/op	       1 allocs/op
+BenchmarkDecodeLengthPrefix-14    	1000000000	         0.6203 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeLengthPrefix-14    	1000000000	         0.6131 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeLengthPrefix-14    	1000000000	         0.6148 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeDelimiter-14       	511761996	         2.346 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeDelimiter-14       	512224558	         2.343 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeDelimiter-14       	510941148	         2.345 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeFixedLength-14     	52200957	        22.38 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeFixedLength-14     	53371978	        23.10 ns/op	       0 B/op	       0 allocs/op
+BenchmarkDecodeFixedLength-14     	54022418	        22.77 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	framing-bench	21.971s

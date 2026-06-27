@@ -1,0 +1,31 @@
+=== E2a CPU Profile Top ===
+执行时间: 2026-04-19 07:57:49
+实测环境: Go 1.26.2 / darwin arm64 / M 系列芯片 / GOMAXPROCS=14
+
+File: main
+Type: cpu
+Time: 2026-04-19 07:55:41 CST
+Duration: 1.50s, Total samples = 1980ms (131.84%)
+Showing nodes accounting for 1980ms, 100% of 1980ms total
+Showing top 20 nodes out of 26
+      flat  flat%   sum%        cum   cum%
+    1300ms 65.66% 65.66%     1300ms 65.66%  runtime.pthread_cond_signal
+     480ms 24.24% 89.90%      480ms 24.24%  runtime.pthread_cond_wait
+     200ms 10.10%   100%      200ms 10.10%  runtime.usleep
+         0     0%   100%      660ms 33.33%  runtime.findRunnable
+         0     0%   100%       20ms  1.01%  runtime.lock (inline)
+         0     0%   100%       20ms  1.01%  runtime.lock2
+         0     0%   100%       20ms  1.01%  runtime.lockWithRank (inline)
+         0     0%   100%      480ms 24.24%  runtime.mPark (inline)
+         0     0%   100%      730ms 36.87%  runtime.mcall
+         0     0%   100%      480ms 24.24%  runtime.notesleep
+         0     0%   100%     1300ms 65.66%  runtime.notewakeup
+         0     0%   100%       20ms  1.01%  runtime.osyield (inline)
+         0     0%   100%      730ms 36.87%  runtime.park_m
+         0     0%   100%     1250ms 63.13%  runtime.ready
+         0     0%   100%     1250ms 63.13%  runtime.readyWithTime.goready.func1
+         0     0%   100%       70ms  3.54%  runtime.resetspinning
+         0     0%   100%      180ms  9.09%  runtime.runqgrab
+         0     0%   100%      180ms  9.09%  runtime.runqsteal
+         0     0%   100%      730ms 36.87%  runtime.schedule
+         0     0%   100%      480ms 24.24%  runtime.semasleep

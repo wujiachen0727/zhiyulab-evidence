@@ -1,0 +1,7 @@
+[复制粘贴] int 去重: [1 2 3]
+[复制粘贴] string 去重: [go java]
+[泛型] UserID 去重: [u1 u2]
+[any] 混入 string 后的暴露阶段: runtime panic -> true
+[any] panic: interface conversion: interface {} is string, not int
+[any] UserID/OrderID 混入: [u1 o1 u2]
+[reflect] UserID 去重: [u1 u2] err: <nil>

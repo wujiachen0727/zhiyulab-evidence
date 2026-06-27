@@ -1,0 +1,76 @@
+goos: darwin
+goarch: arm64
+pkg: pool-benchmark
+cpu: Apple M4 Pro
+BenchmarkMatrix/Pool/size=16/procs=1-14         	192556938	         5.785 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=16/procs=1-14        	653191862	         1.802 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Pool/size=16/procs=4-14         	692948480	         1.754 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=16/procs=4-14        	1000000000	         0.4577 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Pool/size=16/procs=8-14         	1000000000	         0.8777 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=16/procs=8-14        	1000000000	         0.2276 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Pool/size=16/procs=16-14        	1000000000	         0.6665 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=16/procs=16-14       	1000000000	         0.1588 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Pool/size=16/procs=32-14        	1000000000	         0.6702 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=16/procs=32-14       	1000000000	         0.1728 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Pool/size=64/procs=1-14         	188645998	         5.703 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=64/procs=1-14        	84641156	        13.48 ns/op	      64 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=64/procs=4-14         	720198591	         1.643 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=64/procs=4-14        	100000000	        12.43 ns/op	      64 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=64/procs=8-14         	1000000000	         1.021 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=64/procs=8-14        	100000000	        13.84 ns/op	      64 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=64/procs=16-14        	1000000000	         0.7659 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=64/procs=16-14       	87659486	        14.29 ns/op	      64 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=64/procs=32-14        	1000000000	         0.8400 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=64/procs=32-14       	84702639	        14.17 ns/op	      64 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=128/procs=1-14        	188779014	         5.947 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=128/procs=1-14       	36683878	        31.86 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=128/procs=4-14        	726755188	         1.672 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=128/procs=4-14       	41990586	        25.97 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=128/procs=8-14        	1000000000	         0.8460 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=128/procs=8-14       	52381350	        23.46 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=128/procs=16-14       	1000000000	         0.7201 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=128/procs=16-14      	40172294	        31.85 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=128/procs=32-14       	1000000000	         1.040 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=128/procs=32-14      	33503593	        36.42 ns/op	     128 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=256/procs=1-14        	172753488	         6.114 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=256/procs=1-14       	16862034	        66.93 ns/op	     256 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=256/procs=4-14        	711306760	         1.701 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=256/procs=4-14       	24144828	        53.14 ns/op	     256 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=256/procs=8-14        	1000000000	         0.8774 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=256/procs=8-14       	25443201	        65.81 ns/op	     256 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=256/procs=16-14       	1000000000	         0.8909 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=256/procs=16-14      	18356061	        57.93 ns/op	     256 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=256/procs=32-14       	1000000000	         0.8546 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=256/procs=32-14      	15298902	        80.50 ns/op	     256 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=512/procs=1-14        	187785945	         5.886 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=512/procs=1-14       	13181211	        89.83 ns/op	     512 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=512/procs=4-14        	723379990	         1.713 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=512/procs=4-14       	15638575	        78.26 ns/op	     512 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=512/procs=8-14        	1000000000	         0.8423 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=512/procs=8-14       	12495844	        90.17 ns/op	     512 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=512/procs=16-14       	1000000000	         0.7659 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=512/procs=16-14      	10149099	       125.2 ns/op	     512 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=512/procs=32-14       	1000000000	         0.8605 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=512/procs=32-14      	 7915923	       169.1 ns/op	     512 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=1024/procs=1-14       	173877805	         6.715 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=1024/procs=1-14      	 8366827	       136.8 ns/op	    1024 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=1024/procs=4-14       	688861069	         1.770 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=1024/procs=4-14      	 8876401	       135.1 ns/op	    1024 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=1024/procs=8-14       	1000000000	         0.8937 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=1024/procs=8-14      	 6805456	       165.7 ns/op	    1024 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=1024/procs=16-14      	1000000000	         0.7548 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=1024/procs=16-14     	 5456372	       209.9 ns/op	    1024 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=1024/procs=32-14      	1000000000	         0.6977 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=1024/procs=32-14     	 4188843	       287.4 ns/op	    1024 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=4096/procs=1-14       	190182237	         6.155 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=4096/procs=1-14      	 3511995	       350.7 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=4096/procs=4-14       	725187447	         1.722 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=4096/procs=4-14      	 2919432	       441.2 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=4096/procs=8-14       	1000000000	         0.8973 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=4096/procs=8-14      	 2043018	       564.2 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=4096/procs=16-14      	1000000000	         0.6924 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=4096/procs=16-14     	 1523544	       776.2 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkMatrix/Pool/size=4096/procs=32-14      	1000000000	         0.7177 ns/op	       0 B/op	       0 allocs/op
+BenchmarkMatrix/Alloc/size=4096/procs=32-14     	 1000000	      1044 ns/op	    4096 B/op	       1 allocs/op
+PASS
+ok  	pool-benchmark	86.901s

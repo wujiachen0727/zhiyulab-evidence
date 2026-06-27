@@ -1,0 +1,23 @@
+=== E2a Block Profile Top ===
+执行时间: 2026-04-19 07:57:50
+
+File: main
+Type: delay
+Time: 2026-04-19 07:55:42 CST
+Showing nodes accounting for 71.82s, 100% of 71.82s total
+Dropped 12 nodes (cum <= 0.36s)
+      flat  flat%   sum%        cum   cum%
+    66.75s 92.94% 92.94%     66.75s 92.94%  sync.(*Mutex).Lock (inline)
+     2.30s  3.20% 96.15%      2.30s  3.20%  runtime.chanrecv1
+     1.38s  1.93% 98.07%      1.38s  1.93%  runtime.selectgo
+     1.38s  1.93%   100%      1.38s  1.93%  sync.(*WaitGroup).Wait
+         0     0%   100%     66.75s 92.94%  main.(*shared).incrementHeavy
+         0     0%   100%      1.38s  1.93%  main.main
+         0     0%   100%      1.38s  1.93%  main.runWorkload
+         0     0%   100%     66.75s 92.94%  main.runWorkload.func1
+         0     0%   100%      1.38s  1.93%  main.runWorkload.func2
+         0     0%   100%     66.75s 92.94%  main.runWorkload.gowrap1
+         0     0%   100%         1s  1.39%  runtime.(*traceAdvancerState).start.func1
+         0     0%   100%      2.30s  3.20%  runtime.(*wakeableSleep).sleep
+         0     0%   100%      1.38s  1.93%  runtime.main
+         0     0%   100%      1.30s  1.81%  runtime.traceStartReadCPU.func1

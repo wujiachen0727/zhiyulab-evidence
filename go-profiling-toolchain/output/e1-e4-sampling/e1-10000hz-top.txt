@@ -1,0 +1,32 @@
+=== E1+E4 Run @ 10000Hz (实际 pprof 硬编码 100Hz) ===
+实测环境: Go 1.26.2 / darwin arm64 / M 系列芯片 / GOMAXPROCS=14
+
+File: workload
+Type: cpu
+Time: 2026-04-19 08:46:22 CST
+Duration: 38.66s, Total samples = 1060.40ms ( 2.74%)
+Showing nodes accounting for 1059.90ms, 100% of 1060.40ms total
+Dropped 32 nodes (cum <= 5.30ms)
+      flat  flat%   sum%        cum   cum%
+  250.40ms 23.61% 23.61%   282.50ms 26.64%  main.microFn (inline)
+  244.90ms 23.10% 46.71%   278.60ms 26.27%  main.shortFn (inline)
+  242.40ms 22.86% 69.57%   276.90ms 26.11%  main.mediumFn (inline)
+  195.10ms 18.40% 87.97%   221.90ms 20.93%  main.heavyFn (inline)
+  127.10ms 11.99%   100%   127.10ms 11.99%  runtime.asyncPreempt
+         0     0%   100%  1060.10ms   100%  main.main
+         0     0%   100%  1059.90ms   100%  main.runWorkload
+         0     0%   100%  1060.10ms   100%  runtime.main
+
+--- heavyFn 的 peek（展示 asyncPreempt 分摊）---
+File: workload
+Type: cpu
+Time: 2026-04-19 08:46:22 CST
+Duration: 38.66s, Total samples = 1060.40ms ( 2.74%)
+Showing nodes accounting for 1060.40ms, 100% of 1060.40ms total
+----------------------------------------------------------+-------------
+      flat  flat%   sum%        cum   cum%   calls calls% + context 	 	 
+----------------------------------------------------------+-------------
+                                          221.90ms   100% |   main.runWorkload (inline)
+  195.10ms 18.40% 18.40%   221.90ms 20.93%                | main.heavyFn
+                                           26.80ms 12.08% |   runtime.asyncPreempt
+----------------------------------------------------------+-------------

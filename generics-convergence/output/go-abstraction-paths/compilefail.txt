@@ -1,0 +1,2 @@
+# go-abstraction-paths/compilefail
+compilefail/main.go:12:43: cannot use OrderID("o1") (constant "o1" of string type OrderID) as UserID value in array or slice literal

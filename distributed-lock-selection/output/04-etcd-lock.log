@@ -1,0 +1,21 @@
+[T+ 0.01s] === 场景 1：A 用 lease+Txn 获锁，正常 release ===
+[T+ 0.01s][A] Grant lease (id=18f9e7d22bbd806, ttl=10s)
+[T+ 0.01s][A] Txn(CAS) Put → succeeded=true（绑定 lease）
+[T+ 1.01s][A] Revoke lease → key 立即消失（不用等 TTL）
+[T+ 1.01s] etcd 上 GET "/locks/order/1004" → 0 个 key
+
+[T+ 1.01s] === 场景 2：B 获锁后崩溃 → server 自动 revoke ===
+[T+ 1.01s][B] Grant lease (id=18f9e7d22bbd80b, ttl=3s)
+[T+ 1.01s][B] Txn(CAS) Put → succeeded=true（不调 KeepAlive，模拟崩溃）
+    [keepalive A] channel 关闭（lease 已过期或 client 关闭）
+[T+ 4.50s][C] Watch 到 key 删除，立即 Txn(CAS) → 拿到锁，等待 3.489s
+
+=== 实验结论 ===
+1. A 主动 Revoke：key 立即消失，watcher 立即收到 Delete 事件——不用等 TTL
+2. B 模拟崩溃：lease ttl=3s，server 检测不到 keepalive 后自动 revoke
+3. C 通过 Watch + Txn(CAS) 在 lock 释放的瞬间拿到锁——抢占公平且即时
+
+对照 Redis 三场景：
+- 进程崩溃（E1）：etcd lease 由 server 自动 revoke，不用等 TTL
+- 续期失败（E2）：keepalive 断 → server 立即 revoke；新持锁者明确知道前一个走了
+- 主从切换（E3）：etcd 走 raft，写入需过半节点 ack，不存在异步丢数据

@@ -1,0 +1,7 @@
+Redis  SETNX+DEL  5000 次  耗时 2.528s  QPS=1978  P50≈505.682µs/op
+etcd   Txn+Delete 5000 次  耗时 5.578s  QPS=896  P50≈1.115603ms/op
+
+速率比：Redis / etcd = 2.21x
+
+注意：本测试是单 client 串行 round-trip，反映网络延迟+服务端处理；
+      生产环境的并发吞吐会进一步放大差距，但相对比例近似。

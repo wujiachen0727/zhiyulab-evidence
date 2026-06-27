@@ -1,0 +1,15 @@
+[T+ 0.00s][A] SETNX client_A → true (TTL=3s)
+[T+ 1.00s][A.watchdog] EXPIRE → 续期成功？true
+[T+ 2.00s][A] ⚠️ 模拟 STW 5s 开始（业务 + watchdog 都被冻结）
+[T+ 2.00s][A.watchdog] EXPIRE → 续期成功？true
+[T+ 2.00s][A.watchdog] 收到停止信号，退出
+[T+ 5.04s][B] SETNX client_B → true  ✅ 抢到锁
+[T+ 7.00s][A] STW 结束，业务继续
+[T+ 7.00s][A] GET 锁 owner = "client_B"
+[T+ 7.00s][A] ⚠️ 锁已易主——但仅在主动 GET 时才察觉
+[T+ 7.00s][A] 如果代码没做 owner 校验就直接 DEL+扣库存，就是双持事故
+
+=== 实验结果 ===
+STW 时长 5s > TTL 3s → watchdog 来不及续期
+结论：A 苏醒后锁的 owner 已变成 client_B；如果业务代码没做 owner 校验，A 会以为自己还持锁，造成双持
+修复方向：1) 加 owner 校验（GET+CAS DEL）；2) Redisson 的 fencing token；3) 改用 etcd lease（lease 在客户端断连时由 server 自动 revoke）

@@ -1,0 +1,10 @@
+[T+ 0.00s] client_A SETNX → true   (TTL=10s)
+[T+ 0.00s] client_A 模拟 kill -9，不调用 DEL/UNLINK
+[T+ 0.00s] client_B 开始尝试 SETNX，每 200ms 一次
+[T+10.09s] client_B SETNX → true  ✅ 拿到锁（第 51 次尝试）
+
+=== 实验结果 ===
+client_B 总等待时间：10.095s
+client_B 尝试次数：  51
+锁 TTL：             10s
+结论：client_A 崩溃后未释放锁，client_B 必须等到 TTL 过期才能继续
