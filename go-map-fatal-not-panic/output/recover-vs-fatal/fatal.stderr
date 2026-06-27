@@ -1,0 +1,9 @@
+fatal error: concurrent map writes
+
+goroutine 12 [running]:
+internal/runtime/maps.fatal({0x102bc9308?, 0x587e759402a0?})
+	/opt/homebrew/Cellar/go/1.26.2/libexec/src/runtime/panic.go:1181 +0x20
+main.runConcurrentMapWrites.func1(0x7)
+	/Users/wujiachen/WriteCraft/articles/go-map-fatal-not-panic/evidence/code/recover-vs-fatal/main.go:57 +0xa0
+created by main.runConcurrentMapWrites in goroutine 1
+	/Users/wujiachen/WriteCraft/articles/go-map-fatal-not-panic/evidence/code/recover-vs-fatal/main.go:47 +0x64

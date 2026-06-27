@@ -1,0 +1,4 @@
+[实测 Python 3.9.6] 无类型检查路径：前两个输入正常，第三个输入到运行时才报错
+case 1: ada
+case 2: grace
+case 3: AttributeError: 'NoneType' object has no attribute 'strip'

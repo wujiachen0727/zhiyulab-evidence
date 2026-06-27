@@ -1,0 +1,7 @@
+[实测 Python 3.9.6] CPU-bound 并发边界最小实验
+platform=macOS-26.5-arm64-arm-64bit
+executable=/Library/Developer/CommandLineTools/usr/bin/python3
+cpu_count=14, tasks=4, n_per_task=3000000
+sequential: elapsed=0.531s, speedup_vs_sequential=1.00x, checksum=576000968
+threading-4: elapsed=0.550s, speedup_vs_sequential=0.97x, checksum=576000968
+multiprocessing-4: elapsed=0.260s, speedup_vs_sequential=2.04x, checksum=576000968

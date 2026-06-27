@@ -1,0 +1,5 @@
+stage,file_count,command_count,config_count,delivery_check_count
+00-single-script,1,1,0,1
+01-repeatable-script,3,2,1,3
+02-testable-project,5,3,3,4
+03-deliverable-project,8,5,6,6

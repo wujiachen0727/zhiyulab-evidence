@@ -1,0 +1,41 @@
+goos: darwin
+goarch: arm64
+pkg: map_sync_bench
+cpu: Apple M4 Pro
+BenchmarkPlainMapReadMostly-14      	300303504	         3.780 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapReadMostly-14      	310024646	         3.886 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapReadMostly-14      	308978230	         3.846 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapReadMostly-14      	304239931	         3.900 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapReadMostly-14      	308500538	         3.911 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapReadMostly-14     	248440731	         4.847 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapReadMostly-14     	246615565	         4.840 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapReadMostly-14     	252091130	         4.808 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapReadMostly-14     	253709040	         4.798 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapReadMostly-14     	251427132	         4.944 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapReadMostly-14       	81379838	        15.67 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapReadMostly-14       	78895250	        15.47 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapReadMostly-14       	76711220	        15.18 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapReadMostly-14       	78356901	        15.68 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapReadMostly-14       	78954510	        15.27 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapWriteHeavy-14      	214562010	         5.692 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapWriteHeavy-14      	210294176	         5.795 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapWriteHeavy-14      	206469950	         5.804 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapWriteHeavy-14      	203389356	         5.781 ns/op	       0 B/op	       0 allocs/op
+BenchmarkPlainMapWriteHeavy-14      	196848388	         5.748 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapWriteHeavy-14     	184865557	         6.535 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapWriteHeavy-14     	179758706	         6.517 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapWriteHeavy-14     	182860149	         6.587 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapWriteHeavy-14     	184165254	         6.550 ns/op	       0 B/op	       0 allocs/op
+BenchmarkLockedMapWriteHeavy-14     	176937531	         6.681 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapWriteHeavy-14       	34233426	        34.95 ns/op	      31 B/op	       1 allocs/op
+BenchmarkSyncMapWriteHeavy-14       	34165564	        33.72 ns/op	      31 B/op	       1 allocs/op
+BenchmarkSyncMapWriteHeavy-14       	38527551	        31.71 ns/op	      31 B/op	       1 allocs/op
+BenchmarkSyncMapWriteHeavy-14       	38364345	        33.05 ns/op	      31 B/op	       1 allocs/op
+BenchmarkSyncMapWriteHeavy-14       	37121916	        33.36 ns/op	      31 B/op	       1 allocs/op
+BenchmarkSyncMapRangeSnapshot-14    	19623661	        66.13 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapRangeSnapshot-14    	14421039	        90.33 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapRangeSnapshot-14    	23299339	        54.94 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapRangeSnapshot-14    	21876618	        62.53 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSyncMapRangeSnapshot-14    	18319863	        58.89 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	map_sync_bench	55.368s

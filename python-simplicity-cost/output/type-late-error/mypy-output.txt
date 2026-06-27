@@ -1,0 +1,2 @@
+articles/python-simplicity-cost/evidence/code/type-late-error/type_late_error_demo.py:26: error: Incompatible types (expression has type "None", TypedDict item "name" has type "str")  [typeddict-item]
+Found 1 error in 1 file (checked 1 source file)
