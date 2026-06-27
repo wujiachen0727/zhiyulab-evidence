@@ -1,0 +1,106 @@
+{
+  "environment": "Python stdlib, no external dependencies",
+  "note": "ai_initial.py 是本次论证阶段由 AI 按最小可运行需求生成的初版；deliverable_version.py 是按可交付护栏补齐后的版本。",
+  "code_lines": {
+    "ai_initial": 5,
+    "deliverable_version": 55
+  },
+  "checks": {
+    "ai_initial": [
+      {
+        "name": "正常路径可计算",
+        "passed": true,
+        "detail": "{'status': 'ok', 'total': 16.0}"
+      },
+      {
+        "name": "空购物车被拒绝",
+        "passed": false,
+        "detail": "未报错"
+      },
+      {
+        "name": "负价格被拒绝",
+        "passed": false,
+        "detail": "未报错"
+      },
+      {
+        "name": "零数量被拒绝",
+        "passed": false,
+        "detail": "未报错"
+      },
+      {
+        "name": "幂等追踪字段存在",
+        "passed": false,
+        "detail": "{'status': 'ok', 'total': 10}"
+      },
+      {
+        "name": "审计事件存在",
+        "passed": false,
+        "detail": "{'status': 'ok', 'total': 10}"
+      },
+      {
+        "name": "货币单位明确",
+        "passed": false,
+        "detail": "{'status': 'ok', 'total': 10}"
+      },
+      {
+        "name": "折扣规则可配置",
+        "passed": false,
+        "detail": "{'status': 'ok', 'total': 100}"
+      }
+    ],
+    "deliverable_version": [
+      {
+        "name": "正常路径可计算",
+        "passed": true,
+        "detail": "{'status': 'ok', 'request_id': 'req-1', 'subtotal': '20.00', 'discount': '4.00', 'total': '16.00', 'currency': 'CNY', 'audit_events': ['checkout.calculated request_id=req-1', 'items=1 coupon=VIP discount_rate=0.20']}"
+      },
+      {
+        "name": "空购物车被拒绝",
+        "passed": true,
+        "detail": "ValidationError"
+      },
+      {
+        "name": "负价格被拒绝",
+        "passed": true,
+        "detail": "ValidationError"
+      },
+      {
+        "name": "零数量被拒绝",
+        "passed": true,
+        "detail": "ValidationError"
+      },
+      {
+        "name": "幂等追踪字段存在",
+        "passed": true,
+        "detail": "ValidationError"
+      },
+      {
+        "name": "审计事件存在",
+        "passed": true,
+        "detail": "{'status': 'ok', 'request_id': 'req-audit', 'subtotal': '10.00', 'discount': '0.00', 'total': '10.00', 'currency': 'CNY', 'audit_events': ['checkout.calculated request_id=req-audit', 'items=1 coupon=- discount_rate=0']}"
+      },
+      {
+        "name": "货币单位明确",
+        "passed": true,
+        "detail": "{'status': 'ok', 'request_id': 'req-currency', 'subtotal': '10.00', 'discount': '0.00', 'total': '10.00', 'currency': 'CNY', 'audit_events': ['checkout.calculated request_id=req-currency', 'items=1 coupon=- discount_rate=0']}"
+      },
+      {
+        "name": "折扣规则可配置",
+        "passed": true,
+        "detail": "{'status': 'ok', 'request_id': 'req-rules', 'subtotal': '100.00', 'discount': '10.00', 'total': '90.00', 'currency': 'CNY', 'audit_events': ['checkout.calculated request_id=req-rules', 'items=1 coupon=TEST discount_rate=0.10']}"
+      }
+    ]
+  },
+  "summary": {
+    "ai_initial": {
+      "passed": 1,
+      "total": 8,
+      "failed": 7
+    },
+    "deliverable_version": {
+      "passed": 8,
+      "total": 8,
+      "failed": 0
+    }
+  }
+}

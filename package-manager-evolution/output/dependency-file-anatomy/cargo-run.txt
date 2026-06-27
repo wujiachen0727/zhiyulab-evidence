@@ -1,0 +1,9 @@
+ Downloading crates ...
+  Downloaded either v1.16.0
+  Downloaded itertools v0.14.0
+   Compiling either v1.16.0
+   Compiling itertools v0.14.0
+   Compiling dependency-file-anatomy v0.1.0 (/Users/wujiachen/WriteCraft/articles/package-manager-evolution/evidence/code/dependency-file-anatomy/cargo-demo)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 2.68s
+     Running `articles/package-manager-evolution/evidence/code/dependency-file-anatomy/cargo-demo/target/debug/dependency-file-anatomy`
+lock-diff-matters

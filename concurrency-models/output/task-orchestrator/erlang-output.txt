@@ -1,0 +1,27 @@
+scenario=erlang-success
+state_owner=each process owns its local state; parent aggregates only messages
+waiting_owner=mailbox receive and after timeout define waiting boundary in the parent process
+failure_boundary=linked worker exit is received by parent; parent kills sibling processes explicitly
+completed=[billing,profile,risk]
+failed=[]
+canceled=[]
+error=<nil>
+---
+scenario=erlang-timeout
+state_owner=each process owns its local state; parent aggregates only messages
+waiting_owner=mailbox receive and after timeout define waiting boundary in the parent process
+failure_boundary=linked worker exit is received by parent; parent kills sibling processes explicitly
+completed=[billing,profile]
+failed=[]
+canceled=[risk]
+error=timeout
+---
+scenario=erlang-worker-error
+state_owner=each process owns its local state; parent aggregates only messages
+waiting_owner=mailbox receive and after timeout define waiting boundary in the parent process
+failure_boundary=linked worker exit is received by parent; parent kills sibling processes explicitly
+completed=[profile]
+failed=[billing]
+canceled=[risk]
+error={task_error,billing}
+---

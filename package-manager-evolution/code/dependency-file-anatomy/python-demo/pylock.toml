@@ -1,0 +1,57 @@
+lock-version = "1.0"
+created-by = "pip"
+
+[[packages]]
+name = "certifi"
+version = "2026.5.20"
+
+[[packages.wheels]]
+name = "certifi-2026.5.20-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/59/8c/57e832b7af6d7c5abe66eb3fbe3a3a32f4d11ea23a1aa7131371035be991/certifi-2026.5.20-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "3c52e209ba0a4ad7aebe60436a4ab349c39e1e602e8c134221e546902ad25897"
+
+[[packages]]
+name = "charset-normalizer"
+version = "3.4.7"
+
+[[packages.wheels]]
+name = "charset_normalizer-3.4.7-cp39-cp39-macosx_10_9_universal2.whl"
+url = "https://files.pythonhosted.org/packages/01/1b/ef725f8eb19b5a261b30f78efa9252ef9d017985cb499102f6f49834cd12/charset_normalizer-3.4.7-cp39-cp39-macosx_10_9_universal2.whl"
+
+[packages.wheels.hashes]
+sha256 = "177a0ba5f0211d488e295aaf82707237e331c24788d8d76c96c5a41594723217"
+
+[[packages]]
+name = "idna"
+version = "3.17"
+
+[[packages.wheels]]
+name = "idna-3.17-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/de/a7/f76514cc40ad6234098ecdebda08732d75964776c51a42845b7da10649e2/idna-3.17-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "466e48829084efe2548012b855df21540b96f2e20e51bd124c851536556a592c"
+
+[[packages]]
+name = "requests"
+version = "2.32.5"
+
+[[packages.wheels]]
+name = "requests-2.32.5-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/1e/db/4254e3eabe8020b458f1a747140d32277ec7a271daf1d235b70dc0b4e6e3/requests-2.32.5-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "2462f94637a34fd532264295e186976db0f5d453d1cdd31473c85a6a161affb6"
+
+[[packages]]
+name = "urllib3"
+version = "2.6.3"
+
+[[packages.wheels]]
+name = "urllib3-2.6.3-py3-none-any.whl"
+url = "https://files.pythonhosted.org/packages/39/08/aaaad47bc4e9dc8c725e68f9d04865dbcb2052843ff09c97b08904852d84/urllib3-2.6.3-py3-none-any.whl"
+
+[packages.wheels.hashes]
+sha256 = "bf272323e553dfb2e87d9bfd225ca7b0f467b919d7bbd355436d3fd37cb0acd4"

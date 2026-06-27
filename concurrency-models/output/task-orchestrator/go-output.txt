@@ -1,0 +1,27 @@
+scenario=go-success
+state_owner=aggregator goroutine owns the result slice; workers only send immutable Result values
+waiting_owner=context.WithTimeout + select make waiting and cancellation explicit in application code
+failure_boundary=first worker error cancels sibling work through shared context
+completed=[billing profile risk]
+failed=[]
+canceled=[]
+error=<nil>
+---
+scenario=go-timeout
+state_owner=aggregator goroutine owns the result slice; workers only send immutable Result values
+waiting_owner=context.WithTimeout + select make waiting and cancellation explicit in application code
+failure_boundary=first worker error cancels sibling work through shared context
+completed=[billing profile]
+failed=[]
+canceled=[risk]
+error=risk canceled: context deadline exceeded
+---
+scenario=go-worker-error
+state_owner=aggregator goroutine owns the result slice; workers only send immutable Result values
+waiting_owner=context.WithTimeout + select make waiting and cancellation explicit in application code
+failure_boundary=first worker error cancels sibling work through shared context
+completed=[profile]
+failed=[billing]
+canceled=[risk]
+error=billing returned error
+---

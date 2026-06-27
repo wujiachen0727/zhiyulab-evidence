@@ -1,0 +1,5 @@
+
+> verify
+> node index.js
+
+3 is odd: true

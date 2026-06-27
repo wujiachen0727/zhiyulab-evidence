@@ -1,0 +1,14 @@
+WARNING: pip lock is currently an experimental command. It may be removed/changed in a future release without prior warning.
+Collecting requests==2.32.5 (from -r articles/package-manager-evolution/evidence/code/dependency-file-anatomy/python-demo/requirements.in (line 1))
+  Using cached requests-2.32.5-py3-none-any.whl.metadata (4.9 kB)
+Collecting charset_normalizer<4,>=2 (from requests==2.32.5->-r articles/package-manager-evolution/evidence/code/dependency-file-anatomy/python-demo/requirements.in (line 1))
+  Downloading charset_normalizer-3.4.7-cp39-cp39-macosx_10_9_universal2.whl.metadata (40 kB)
+Collecting idna<4,>=2.5 (from requests==2.32.5->-r articles/package-manager-evolution/evidence/code/dependency-file-anatomy/python-demo/requirements.in (line 1))
+  Downloading idna-3.17-py3-none-any.whl.metadata (6.4 kB)
+Collecting urllib3<3,>=1.21.1 (from requests==2.32.5->-r articles/package-manager-evolution/evidence/code/dependency-file-anatomy/python-demo/requirements.in (line 1))
+  Using cached urllib3-2.6.3-py3-none-any.whl.metadata (6.9 kB)
+Collecting certifi>=2017.4.17 (from requests==2.32.5->-r articles/package-manager-evolution/evidence/code/dependency-file-anatomy/python-demo/requirements.in (line 1))
+  Downloading certifi-2026.5.20-py3-none-any.whl.metadata (2.5 kB)
+
+[notice] A new release of pip is available: 25.3 -> 26.0.1
+[notice] To update, run: /Library/Developer/CommandLineTools/usr/bin/python3 -m pip install --upgrade pip

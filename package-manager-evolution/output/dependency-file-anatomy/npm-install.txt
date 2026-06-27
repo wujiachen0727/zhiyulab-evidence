@@ -1,0 +1,8 @@
+
+up to date, audited 3 packages in 2s
+
+found 0 vulnerabilities
+
+added 2 packages, and audited 3 packages in 1s
+
+found 0 vulnerabilities

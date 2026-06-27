@@ -1,0 +1,27 @@
+scenario=java-success
+state_owner=caller keeps aggregation state in ordinary objects; virtual threads do not change shared-state semantics
+waiting_owner=blocking Future/CompletionService code stays synchronous; JVM virtual threads absorb most waiting cost
+failure_boundary=application orchestration cancels unfinished futures after timeout or first failure
+completed=[billing, profile, risk]
+failed=[]
+canceled=[]
+error=<nil>
+---
+scenario=java-timeout
+state_owner=caller keeps aggregation state in ordinary objects; virtual threads do not change shared-state semantics
+waiting_owner=blocking Future/CompletionService code stays synchronous; JVM virtual threads absorb most waiting cost
+failure_boundary=application orchestration cancels unfinished futures after timeout or first failure
+completed=[billing, profile]
+failed=[]
+canceled=[risk]
+error=overall timeout after 70ms
+---
+scenario=java-worker-error
+state_owner=caller keeps aggregation state in ordinary objects; virtual threads do not change shared-state semantics
+waiting_owner=blocking Future/CompletionService code stays synchronous; JVM virtual threads absorb most waiting cost
+failure_boundary=application orchestration cancels unfinished futures after timeout or first failure
+completed=[profile]
+failed=[billing returned error]
+canceled=[risk]
+error=billing returned error
+---
