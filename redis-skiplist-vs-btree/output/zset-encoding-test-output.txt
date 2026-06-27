@@ -1,0 +1,31 @@
+=== Redis 8.8.0 ZSET 编码切换实测 ===
+时间: 2026-06-27T12:56:00Z
+
+=== 测试 1: 元素数量阈值 ===
+| 元素数 | 元素大小 | encoding | memory(bytes) |
+|-------:|---------:|----------|--------------:|
+| 1 | ~10B | listpack | 50 |
+| 64 | ~10B | listpack | 798 |
+| 127 | ~10B | listpack | 1582 |
+| 128 | ~10B | listpack | 1596 |
+| 129 | ~10B | skiplist | 12736 |
+| 200 | ~10B | skiplist | 18456 |
+
+=== 测试 2: 单个元素大小阈值 ===
+| 元素数 | 元素大小 | encoding | memory(bytes) |
+|-------:|---------:|----------|--------------:|
+| 1 | 64B | listpack | 108 |
+| 1 | 65B | skiplist | 976 |
+
+=== 测试 3: listpack vs skiplist 内存占用对比 ===
+| 元素数 | encoding | memory(bytes) | per-element(bytes) |
+|-------:|----------|--------------:|-------------------:|
+| 100 | listpack | 1231 | 12.3 |
+| 128 | listpack | 1596 | 12.5 |
+| 129 | skiplist | 13072 | 101.3 |
+| 500 | skiplist | 43064 | 86.1 |
+| 1000 | skiplist | 86024 | 86.0 |
+
+=== 配置确认 ===
+zset-max-listpack-entries: 128
+zset-max-listpack-value: 64

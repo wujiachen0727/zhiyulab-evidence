@@ -46,6 +46,7 @@
 | 文章 | 发布时间 | 实验代码 | 配套实验数 |
 |------|---------|---------|:---------:|
 | [《Redis 过期策略 vs 内存淘汰：你分清了吗？》](https://www.wujiachen.com.cn/posts/redis-expiry-eviction) | 2026-06-26 | [`redis-expiry-eviction/`](redis-expiry-eviction) | 4 组实验 + 1 组场景（E1 惰性删除 + E2 定期删除 + E3 淘汰策略 + E4 LRU samples + E5 session 雪崩场景） |
+| [《被误解的 Redis 跳表题：B+ 树是磁盘的答案，跳表是内存的答案》](https://www.wujiachen.com.cn/posts/redis-skiplist-vs-btree) | 2026-06-27 | [`redis-skiplist-vs-btree/`](redis-skiplist-vs-btree) | 2 组实验 + 2 组分析（E1 ZSET 编码切换实测 + E2 跳表 vs B+ 树 benchmark + E3 节点大小介质对齐分析 + E4 t_zset 源码分析） |
 | [《Go 协程池：高并发场景下的资源管控必修课》](https://www.wujiachen.com.cn/posts/go-goroutine-pool) | 2026-06-24 | [`go-goroutine-pool/`](go-goroutine-pool) | 3 组（benchmark + OOM demo + 流量突增） |
 | [《数据所有权：预防 Go data race 的设计思维》](https://www.wujiachen.com.cn/posts/go-data-race-beyond) | 2026-06-19 | [`go-data-race-beyond/`](go-data-race-beyond) | 4 组（data-race-demo、ownership-model-demo、ownership-transfer-demo、pipeline-demo） |
 | [《Go HTTP 请求慢在哪里？》](https://www.wujiachen.com.cn/posts/go-httptrace-tracing) | 2026-06-14 | [`go-httptrace-tracing/`](go-httptrace-tracing) | 3 组（httptrace CLI + 连接复用对比 + 多站点阶段耗时） |
