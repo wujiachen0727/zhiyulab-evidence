@@ -45,6 +45,7 @@
 
 | 文章 | 发布时间 | 实验代码 | 配套实验数 |
 |------|---------|---------|:---------:|
+| [《P99 降 74% 不等于问题解决：hedging 是症状治疗不是病因治疗》](https://www.wujiachen.com.cn/posts/go-request-hedging) | 2026-06-28 | [`go-request-hedging/`](go-request-hedging) | 4 组实验 + 2 组场景（E1 证伪实验 hedging 降 P99 51% 但 mutex +1147% + E2 三层对比 仅 hedging vs 修复+hedging + E3 Fan-out 放大实测 + E6 hedging 成本 内存 +455%/GC +125% + E4 生产场景复盘 + E5 三层框架推演） |
 | [《Redis 的持久化机制是什么？各自的优缺点？》](https://www.wujiachen.com.cn/posts/redis-persistence) | 2026-06-28 | [`redis-persistence/`](redis-persistence) | 6 组实验 + 1 组证伪（E1 文件大小 + E2 恢复时间降级推演 + E3 fork 期间 RSS 暴涨 + E4 THP 放大降级推演 + E5 AOF everysec 断电丢失 + E6 fork 耗时 + F1-F4 证伪实验） |
 | [《Redis Bitmap 签到实现：从命令到字节级原理》](https://www.wujiachen.com.cn/posts/redis-bitmap-signin) | 2026-06-28 | [`redis-bitmap-signin/`](redis-bitmap-signin) | 7 组实验（E1 Bitmap 即 String + E2 BITCOUNT 字节偏移 + E3 offset-内存量化 + E4 hash offset 反模式复现 + E5 BITCOUNT 大 key 耗时 + E6 Bitmap vs Set vs Hash + E7 签到完整实现） |
 | [《Redis 过期策略 vs 内存淘汰：你分清了吗？》](https://www.wujiachen.com.cn/posts/redis-expiry-eviction) | 2026-06-26 | [`redis-expiry-eviction/`](redis-expiry-eviction) | 4 组实验 + 1 组场景（E1 惰性删除 + E2 定期删除 + E3 淘汰策略 + E4 LRU samples + E5 session 雪崩场景） |
