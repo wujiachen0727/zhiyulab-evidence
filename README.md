@@ -45,6 +45,7 @@
 
 | 文章 | 发布时间 | 实验代码 | 配套实验数 |
 |------|---------|---------|:---------:|
+| [《Redis Bitmap 签到实现：从命令到字节级原理》](https://www.wujiachen.com.cn/posts/redis-bitmap-signin) | 2026-06-28 | [`redis-bitmap-signin/`](redis-bitmap-signin) | 7 组实验（E1 Bitmap 即 String + E2 BITCOUNT 字节偏移 + E3 offset-内存量化 + E4 hash offset 反模式复现 + E5 BITCOUNT 大 key 耗时 + E6 Bitmap vs Set vs Hash + E7 签到完整实现） |
 | [《Redis 过期策略 vs 内存淘汰：你分清了吗？》](https://www.wujiachen.com.cn/posts/redis-expiry-eviction) | 2026-06-26 | [`redis-expiry-eviction/`](redis-expiry-eviction) | 4 组实验 + 1 组场景（E1 惰性删除 + E2 定期删除 + E3 淘汰策略 + E4 LRU samples + E5 session 雪崩场景） |
 | [《被误解的 Redis 跳表题：B+ 树是磁盘的答案，跳表是内存的答案》](https://www.wujiachen.com.cn/posts/redis-skiplist-vs-btree) | 2026-06-27 | [`redis-skiplist-vs-btree/`](redis-skiplist-vs-btree) | 2 组实验 + 2 组分析（E1 ZSET 编码切换实测 + E2 跳表 vs B+ 树 benchmark + E3 节点大小介质对齐分析 + E4 t_zset 源码分析） |
 | [《Go 协程池：高并发场景下的资源管控必修课》](https://www.wujiachen.com.cn/posts/go-goroutine-pool) | 2026-06-24 | [`go-goroutine-pool/`](go-goroutine-pool) | 3 组（benchmark + OOM demo + 流量突增） |
