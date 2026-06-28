@@ -1,0 +1,33 @@
+=== E4：hash offset 反模式复现 ===
+实测环境：Redis 8.8.0 / Go 1.26.4 / darwin/arm64
+
+对比：相同用户数，连续 offset（0,1,2...）vs hash(offset) 的内存占用
+
+--- 10 个用户 ---
+  连续 offset（正确）:     MEMORY = 48            STRLEN = 2             (max offset=9)
+  FNV1a hash（反模式）:    MEMORY = 306823200     STRLEN = 305729626     (max offset=2445837005)
+  CRC32 hash（反模式）:    MEMORY = 467877920     STRLEN = 467874792     (max offset=3742998331)
+  倍数差异 FNV/连续: 6392150.0x
+  倍数差异 CRC/连续: 9747456.7x
+
+--- 100 个用户 ---
+  连续 offset（正确）:     MEMORY = 64            STRLEN = 13            (max offset=99)
+  FNV1a hash（反模式）:    MEMORY = 306823200     STRLEN = 305773126     (max offset=2446185005)
+  CRC32 hash（反模式）:    MEMORY = 534298656     STRLEN = 534017537     (max offset=4272140294)
+  倍数差异 FNV/连续: 4794112.5x
+  倍数差异 CRC/连续: 8348416.5x
+
+--- 1000 个用户 ---
+  连续 offset（正确）:     MEMORY = 288           STRLEN = 125           (max offset=999)
+  FNV1a hash（反模式）:    MEMORY = 442564640     STRLEN = 332548101     (max offset=2660384804)
+  CRC32 hash（反模式）:    MEMORY = 536936480     STRLEN = 536625628     (max offset=4293005017)
+  倍数差异 FNV/连续: 1536682.8x
+  倍数差异 CRC/连续: 1864362.8x
+
+--- 10000 个用户 ---
+  连续 offset（正确）:     MEMORY = 2096          STRLEN = 1250          (max offset=9999)
+  FNV1a hash（反模式）:    MEMORY = 534298672     STRLEN = 533447742     (max offset=4267581933)
+  CRC32 hash（反模式）:    MEMORY = 536936496     STRLEN = 536856531     (max offset=4294852242)
+  倍数差异 FNV/连续: 254913.5x
+  倍数差异 CRC/连续: 256172.0x
+
