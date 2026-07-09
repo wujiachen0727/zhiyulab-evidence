@@ -1,0 +1,9 @@
+goos: darwin
+goarch: arm64
+pkg: waitgroup
+cpu: Apple M4 Pro
+BenchmarkWaitGroup100-14      	   62623	     21052 ns/op	    1617 B/op	     101 allocs/op
+BenchmarkWaitGroup1000-14     	    4929	    233654 ns/op	   16070 B/op	    1001 allocs/op
+BenchmarkWaitGroup10000-14    	     439	   2680932 ns/op	  160019 B/op	   10001 allocs/op
+PASS
+ok  	waitgroup	4.934s

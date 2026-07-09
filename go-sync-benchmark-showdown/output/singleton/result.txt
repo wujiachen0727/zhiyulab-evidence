@@ -1,0 +1,9 @@
+goos: darwin
+goarch: arm64
+pkg: singleton
+cpu: Apple M4 Pro
+BenchmarkSingletonOnce-14                	1000000000	         0.4232 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSingletonChannel-14             	 9916105	       119.5 ns/op	       0 B/op	       0 allocs/op
+BenchmarkSingletonChannelRoundtrip-14    	72592536	        16.43 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	singleton	3.673s

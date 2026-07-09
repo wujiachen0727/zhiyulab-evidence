@@ -1,0 +1,16 @@
+goos: darwin
+goarch: arm64
+pkg: counter
+cpu: Apple M4 Pro
+BenchmarkCounterAtomic-14    	665682627	         1.855 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCounterMutex-14     	584835222	         2.050 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	counter	3.237s
+goos: darwin
+goarch: arm64
+pkg: counter
+cpu: Apple M4 Pro
+BenchmarkCounterAtomicParallel-14    	83247076	        19.51 ns/op	       0 B/op	       0 allocs/op
+BenchmarkCounterMutexParallel-14     	13241574	        90.40 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	counter	4.885s

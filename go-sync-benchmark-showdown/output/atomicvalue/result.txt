@@ -1,0 +1,8 @@
+goos: darwin
+goarch: arm64
+pkg: atomicvalue
+cpu: Apple M4 Pro
+BenchmarkAtomicValueReadParallel-14    	1000000000	         0.6014 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRWMutexReadParallel-14        	17717341	        64.18 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	atomicvalue	3.023s

@@ -1,0 +1,16 @@
+goos: darwin
+goarch: arm64
+pkg: rwmutex
+cpu: Apple M4 Pro
+BenchmarkMutexReadParallel-14      	17797695	        70.14 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRWMutexReadParallel-14    	14944975	       110.8 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	rwmutex	3.524s
+goos: darwin
+goarch: arm64
+pkg: rwmutex
+cpu: Apple M4 Pro
+BenchmarkMutexReadWorkParallel-14      	 8319613	       130.0 ns/op	       0 B/op	       0 allocs/op
+BenchmarkRWMutexReadWorkParallel-14    	10991934	       109.3 ns/op	       0 B/op	       0 allocs/op
+PASS
+ok  	rwmutex	3.281s
