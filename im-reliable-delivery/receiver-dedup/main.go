@@ -44,7 +44,7 @@ func main() {
 	pc := &DeviceInbox{ID: "pc", seen: map[string]bool{}}
 	tablet := &DeviceInbox{ID: "tablet", seen: map[string]bool{}}
 
-	const msgID = "m-0f3a9c"
+	const msgID = "m-7b2d11" // 与正文第四章火锅消息一致（第二章"在吗"用 m-0f3a9c，避免同一 msgID 对应两种 body）
 	body := "晚上八点组局火锅"
 
 	fmt.Println("=== 场景1：同一消息推给一个用户的三台设备 ===")
