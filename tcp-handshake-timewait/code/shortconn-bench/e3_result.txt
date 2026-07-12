@@ -1,0 +1,2 @@
+[E3 实测 Py] 成功完成 60 次; 首个错误=None
+[E3 实测 Py] 结论: 本机内核默认允许 TIME_WAIT 端口被新连接复用 → 未复现 EADDRINUSE。 Linux 默认语义下（未设 tcp_tw_reuse），此场景会直接报 address already in use。

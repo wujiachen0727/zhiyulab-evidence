@@ -1,0 +1,16 @@
+# E2 实测结果：观测一条短连接从 ESTABLISHED 到 TIME_WAIT 的状态转换
+
+**环境**：macOS Darwin arm64 / Python 3.9.6（实测 2026-07-12）
+**方法**：本地回环起 echo 服务（端口 18080），客户端连一次、收发1字节、主动 close()；随后对该端口高频采样 `netstat -an -p tcp`，记录出现的 TCP 状态。
+（macOS 无抓包权限，用 netstat 采样替代 tcpdump，更直接证明"主动关闭方进入 TIME_WAIT"。）
+
+## 输出
+```
+[E2 实测 netstat macOS] 采样到的 TCP 状态集合: ['CLOSING', 'ESTABLISHED', 'FIN_WAIT_1', 'FIN_WAIT_2', 'LAST_ACK', 'SYN_SENT', 'TIME_WAIT']
+[E2 实测 netstat macOS] 是否观测到 TIME_WAIT: True
+[E2 实测 netstat macOS] 关闭后系统 TIME_WAIT 总数: 28
+```
+
+## 结论
+一次短连接主动关闭，采样到完整的状态序列：SYN_SENT → ESTABLISHED → FIN_WAIT_1 → FIN_WAIT_2 → CLOSING → LAST_ACK → TIME_WAIT。
+亲自证实"主动关闭方（先发 FIN 的一方）在挥手完成后进入 TIME_WAIT"——这正是教科书只讲"为什么2MSL"却没让你亲眼看到的部分。

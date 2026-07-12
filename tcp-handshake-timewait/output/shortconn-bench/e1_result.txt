@@ -1,0 +1,15 @@
+# E1 实测结果：短连接压测 → TIME_WAIT 计数飙升
+
+**环境**：macOS Darwin arm64 / Python 3.9.6（实测 2026-07-12）
+**方法**：本地回环起 echo 服务（端口 18080），客户端连续发起 2000 次短连接，每次建连-收发1字节-关闭。用 `netstat -an -p tcp | grep TIME_WAIT` 在压测前后各计数一次。
+**等价 Linux 命令**：`ss -tan | grep -c TIME-WAIT`
+
+## 输出
+```
+[E1 实测 netstat macOS] 压测前 TIME_WAIT=22
+[E1 实测 netstat macOS] 压测 2000 次短连接后 TIME_WAIT=2049
+[E1 实测 netstat macOS] 增量 = 2027
+```
+
+## 结论
+2000 次短连接让本机 TIME_WAIT 从 22 飙升到 2049（增量 2027）。TIME_WAIT 不是偶发现象，是短连接的必然副产品——每关闭一条主动关闭的连接就多一个。

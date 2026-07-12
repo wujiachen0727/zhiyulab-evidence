@@ -1,0 +1,17 @@
+# E3 实测结果：客户端固定源端口反复短连接，复现本地端口耗尽
+
+**环境**：macOS Darwin arm64 / Python 3.9.6（实测 2026-07-12）
+**方法**：客户端每次都 bind 到固定源端口 18092，连回环 echo 服务（18090），收发1字节后 close，立即用同端口再发起。记录成功 / 报 EADDRINUSE。
+**等价场景**：高并发短连接客户端（爬虫、压测、HTTP/1.0 close 客户端）的"本地端口耗尽"。
+
+## 输出
+```
+[E3 实测 Py] 成功完成 60 次; 首个错误=None
+[E3 实测 Py] 结论: 本机内核默认允许 TIME_WAIT 端口被新连接复用 → 未复现 EADDRINUSE。
+              Linux 默认语义下（未设 tcp_tw_reuse），此场景会直接报 address already in use。
+```
+
+## 诚实标注（关键）
+- **本机（macOS/BSD）**：内核默认允许 TIME_WAIT 端口被新连接复用，因此未复现失败。这是 BSD 系的历史语义差异。
+- **Linux 默认语义**：未设 `tcp_tw_reuse` 时，TIME_WAIT 端口不会主动复用，客户端高频用同端口重连会直接报 `bind: address already in use` —— 即"本地端口耗尽"。
+- **文章处理**：正文诚实说明这一差异，不伪造失败；端口耗尽本身是 Linux 生产环境的真实代价（已由 E1 证明 TIME_WAIT 可达数千量级支撑其现实性）。
