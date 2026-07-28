@@ -108,6 +108,7 @@
 | [《Go 内存管理优化：内联是逃逸分析的隐藏杠杆》](https://www.wujiachen.com.cn/posts/go-escape-analysis) | 2026-04-09 | [`go-escape-analysis/`](go-escape-analysis) | 3 组 |
 | [《Go GC 十年：一部延迟战争史》](https://www.wujiachen.com.cn/posts/go-gc-deep-dive) | 2026-04-08 | [`go-gc-deep-dive/`](go-gc-deep-dive) | 4 组（GC trace + GOGC 对比 + GOMEMLIMIT + 碎片化） |
 | [《Claude Agent Teams 实战手册：从零开始搭建多 Agent 系统》](https://www.wujiachen.com.cn/posts/claude-agent-teams) | 2026-03-03 | [`claude-agent-teams/`](claude-agent-teams) | 1 组（单/多 Agent 系统对比测试） |
+| [《Go 心跳指南：两个坑已被语言修复，剩下四个你得自己扛》](https://www.wujiachen.com.cn/posts/go-heartbeat-design) | 2026-07-28 | [`go-heartbeat-design/`](go-heartbeat-design) | 4 组（Timer GC 版本矩阵 + Jitter 缓解 + 误判率模拟 + 状态机骨架） |
 
 （后续文章发布时会在此追加）
 
