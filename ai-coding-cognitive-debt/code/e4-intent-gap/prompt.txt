@@ -1,0 +1,6 @@
+你是一个资深 Go 工程师。请用 Go 写一个"带有限状态机的 HTTP 限流器"，需求：
+1. 每秒最多 100 个请求；
+2. 有 4 个状态：NORMAL（正常）、SOFT_LIMIT（接近限流）、HARD_LIMIT（已限流）、COOLDOWN（冷却）；
+3. 状态迁移规则：NORMAL 下每秒请求数 >80 进入 SOFT_LIMIT；>100 进入 HARD_LIMIT；HARD_LIMIT 持续 10 秒后进入 COOLDOWN；COOLDOWN 持续 5 秒后回到 NORMAL；
+4. 返回每个请求是否被放行，以及当前状态。
+直接输出完整可编译的 main.go 代码，不要解释。

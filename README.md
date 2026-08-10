@@ -45,6 +45,7 @@
 
 | 文章 | 发布时间 | 实验代码 | 配套实验数 |
 |------|---------|---------|:---------:|
+| [《技术债有账本，认知债没有：AI 编程最贵的代价》](https://www.wujiachen.com.cn/posts/ai-coding-cognitive-debt) | 2026-08-10 | [`ai-coding-cognitive-debt/`](ai-coding-cognitive-debt) | 1 组实测（E4 AI 生成限流器意图缺失分析：140 行 Go 状态机，编译通过但 5 处无理由设计决策 + 1 处阈值对齐错位，含 main.go + README + prompt） |
 | [《at-least-once 不是 bug：IM 消息可靠投递的三道防线》](https://www.wujiachen.com.cn/posts/im-reliable-delivery) | 2026-07-11 | [`im-reliable-delivery/`](im-reliable-delivery) | 3 组 Go demo（E1 发送端 msgID 超时补传 + E2 服务端 store-and-forward 离线暂存 + E3 接收端多端幂等去重，各含可运行 main.go + 运行输出） |
 | [《别再凭直觉选 Go 并发原语：benchmark 实测、源码根因与避坑清单》](https://www.wujiachen.com.cn/posts/go-sync-benchmark-showdown) | 2026-07-09 | [`go-sync-benchmark-showdown/`](go-sync-benchmark-showdown) | 6 组 benchmark（E1 Once vs Channel 单例 0.42ns vs 119.5ns + E2 atomic vs Mutex 计数 无争用1.1x/争用4.6x + E3 WaitGroup 退化 100→11x→127x + E4 RWMutex vs Mutex 纯读反慢1.6x + E5 atomic.Value vs RWMutex 读 107x + E6 errgroup vs WaitGroup 持平）+ E7/E8 源码推演 |
 | [《P99 降 74% 不等于问题解决：hedging 是症状治疗不是病因治疗》](https://www.wujiachen.com.cn/posts/go-request-hedging) | 2026-06-28 | [`go-request-hedging/`](go-request-hedging) | 4 组实验 + 2 组场景（E1 证伪实验 hedging 降 P99 51% 但 mutex +1147% + E2 三层对比 仅 hedging vs 修复+hedging + E3 Fan-out 放大实测 + E6 hedging 成本 内存 +455%/GC +125% + E4 生产场景复盘 + E5 三层框架推演） |
