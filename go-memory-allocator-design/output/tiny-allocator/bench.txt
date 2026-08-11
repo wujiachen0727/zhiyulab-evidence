@@ -1,0 +1,10 @@
+goos: darwin
+goarch: arm64
+pkg: tinyalloc
+cpu: Apple M4 Pro
+BenchmarkAlloc4-14     	14810356	        76.85 ns/op	     416 B/op	       1 allocs/op
+BenchmarkAlloc8-14     	 9790260	       117.9 ns/op	     896 B/op	       1 allocs/op
+BenchmarkAlloc16-14    	 7790299	       157.0 ns/op	    1792 B/op	       1 allocs/op
+BenchmarkAlloc32-14    	 4552225	       293.4 ns/op	    3200 B/op	       1 allocs/op
+PASS
+ok  	tinyalloc	5.662s

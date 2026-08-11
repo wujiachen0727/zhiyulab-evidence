@@ -1,0 +1,14 @@
+# allocvsgc
+gc 1 @0.001s 2%: 0.028+0.15+0.011 ms clock, 0.39+0.037/0.25/0.054+0.16 ms cpu, 3->4->3 MB, 4 MB goal, 0 MB stacks, 0 MB globals, 14 P
+gc 2 @0.003s 2%: 0.009+0.18+0.013 ms clock, 0.12+0.016/0.49/0.10+0.18 ms cpu, 7->7->6 MB, 8 MB goal, 0 MB stacks, 0 MB globals, 14 P
+gc 3 @0.009s 1%: 0.018+0.33+0.014 ms clock, 0.25+0/0.76/0.33+0.20 ms cpu, 11->12->9 MB, 12 MB goal, 0 MB stacks, 0 MB globals, 14 P
+gc 4 @0.022s 1%: 0.025+2.1+0.018 ms clock, 0.35+0.25/0.93/0+0.26 ms cpu, 16->17->11 MB, 18 MB goal, 0 MB stacks, 0 MB globals, 14 P
+
+=== 分配成本 vs GC 成本（n = 50000000 ）===
+A 短生命周期(分配+GC回收): 11.230583ms
+B 长生命周期(分配+GC扫描): 7.078958ms
+
+说明：A 和 B 的分配量相同（都是 n 次），差异来自 GC 工作模式：
+  A 频繁触发 GC 回收 → 耗时主要是 GC 回收
+  B 保留对象 → GC 扫描面大，但回收少
+两者都证明：分配本身（ns 级）被 GC 成本（ms 级/次）掩盖。

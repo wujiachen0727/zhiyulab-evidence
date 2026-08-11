@@ -1,0 +1,12 @@
+goos: darwin
+goarch: arm64
+pkg: sizeclass
+cpu: Apple M4 Pro
+BenchmarkAlloc32-14     	 4830662	       262.7 ns/op	    3200 B/op	       1 allocs/op
+BenchmarkAlloc33-14     	 3117436	       437.4 ns/op	    4096 B/op	       1 allocs/op
+BenchmarkAlloc64-14     	 2857401	       423.9 ns/op	    6528 B/op	       1 allocs/op
+BenchmarkAlloc65-14     	 1771927	       717.1 ns/op	    8192 B/op	       1 allocs/op
+BenchmarkAlloc128-14    	 1491314	       792.3 ns/op	   13568 B/op	       1 allocs/op
+BenchmarkAlloc129-14    	 1707968	       753.4 ns/op	   14336 B/op	       1 allocs/op
+PASS
+ok  	sizeclass	11.048s

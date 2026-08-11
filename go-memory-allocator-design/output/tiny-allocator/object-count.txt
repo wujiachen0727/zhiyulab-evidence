@@ -1,0 +1,8 @@
+=== RUN   TestTinyObjectCount
+    tinyalloc_test.go:30: 4B 对象(tiny合并) 1000000 个: 堆对象数增量 250031（合并比 4.0x）
+    tinyalloc_test.go:30: 8B 对象(tiny合并) 1000000 个: 堆对象数增量 250000（合并比 4.0x）
+    tinyalloc_test.go:30: 16B 对象(sizeclass) 1000000 个: 堆对象数增量 499994（合并比 2.0x）
+    tinyalloc_test.go:30: 32B 对象(sizeclass) 1000000 个: 堆对象数增量 -5（合并比 -200000.0x）
+--- PASS: TestTinyObjectCount (0.05s)
+PASS
+ok  	tinyalloc	0.225s
