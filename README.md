@@ -45,6 +45,7 @@
 
 | 文章 | 发布时间 | 实验代码 | 配套实验数 |
 |------|---------|---------|:---------:|
+| [《幂等性设计：唯一ID、状态机与乐观锁的三层防线》](https://www.wujiachen.com.cn/posts/idempotency-design) | 2026-08-14 | [`idempotency-design/`](idempotency-design) | 4 组 Go 实验（E1 幂等键防重复 99→0 笔重复入账 + E2 状态机防乱序 + E3 乐观锁防并发 10 笔丢 9→全生效 + E4 层间冲突 盲目重试渠道退款 2 次 vs 幂等键 1 次，各含可运行 main.go + README + 运行输出） |
 | [《Go 内存分配器：每一个设计，都在讨价还价》](https://www.wujiachen.com.cn/posts/go-memory-allocator-design) | 2026-08-11 | [`go-memory-allocator-design/`](go-memory-allocator-design) | 4 组实验（E1 简化 allocator 三版本对比 混合1.8x/纯分配缓存反超 + E2 跨 size class 边界实测 32→33 慢66% + E3 tiny allocator 对象数合并 4.0x + E4 分配vs复用 6.5x，各含可运行代码 + README + 运行输出） |
 | [《技术债有账本，认知债没有：AI 编程最贵的代价》](https://www.wujiachen.com.cn/posts/ai-coding-cognitive-debt) | 2026-08-10 | [`ai-coding-cognitive-debt/`](ai-coding-cognitive-debt) | 1 组实测（E4 AI 生成限流器意图缺失分析：140 行 Go 状态机，编译通过但 5 处无理由设计决策 + 1 处阈值对齐错位，含 main.go + README + prompt） |
 | [《at-least-once 不是 bug：IM 消息可靠投递的三道防线》](https://www.wujiachen.com.cn/posts/im-reliable-delivery) | 2026-07-11 | [`im-reliable-delivery/`](im-reliable-delivery) | 3 组 Go demo（E1 发送端 msgID 超时补传 + E2 服务端 store-and-forward 离线暂存 + E3 接收端多端幂等去重，各含可运行 main.go + 运行输出） |
