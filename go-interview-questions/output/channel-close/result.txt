@@ -1,0 +1,23 @@
+== 1. 关闭之后继续接收 ==
+    第 1 次接收：值=1 ok=true
+    第 2 次接收：值=2 ok=true
+    第 3 次接收：值=0 ok=false
+    第 4 次接收：值=0 ok=false
+
+== 2. 关闭之后继续发送 ==
+  向已关闭的 channel 发送
+    -> panic: send on closed channel
+
+== 3. 重复关闭 ==
+  同一个 channel 关闭两次
+    -> panic: close of closed channel
+
+== 4. nil channel 上的收发都永久阻塞 ==
+  在 nil channel 上接收（配 150ms 超时）
+    -> 150ms 内没有任何进展，接收永久阻塞
+  在 nil channel 上发送（配 150ms 超时）
+    -> 150ms 内没有任何进展，发送永久阻塞
+
+== 5. 接收方关闭 channel，发送方会崩 ==
+  接收方先 close，发送方随后发送
+    -> 发送方 panic: send on closed channel

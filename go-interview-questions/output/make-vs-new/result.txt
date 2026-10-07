@@ -1,0 +1,17 @@
+== new(T)：分配内存、置零值、返回指针 ==
+new(map[string]int)                      类型 *map[string]int，指向的 map 是 nil: true
+new([]int)                               类型 *[]int，指向的 slice 是 nil: true
+
+== nil map：读可以，写不行 ==
+读 nil map 的键                             0
+nil map 的 len                            0
+向 nil map 写入                             panic: assignment to entry in nil map
+向 *new(map[string]int) 写入                panic: assignment to entry in nil map
+
+== nil slice：可以直接 append，这是有意设计 ==
+var s []int                              len=0 cap=0 是 nil: true
+append 之后                                len=2 cap=2 值=[1 2]
+
+== make(T)：构造可用的引用类型 ==
+make(map[string]int) 写入后                 map[a:1]
+make([]int, 0, 4)                        len=0 cap=4 是 nil: false

@@ -1,0 +1,14 @@
+== 1. 取消怎么传到最底下 ==
+  最底层（第 5 层调用）收到取消，ctx.Err() = context canceled
+  从取消到最底层退出用了 50ms
+
+== 2. 不调用 cancel 的代价 ==
+  派生 100 个子 context 且不调用 cancel：协程数 1 -> 101
+  未取消的子 context：Done() 是否已关闭 -> false，Err() -> <nil>
+  调用 cancel() 之后：Done() 是否已关闭 -> true，Err() -> context canceled
+
+== 3. 超时和取消是同一个机制 ==
+  WithTimeout 到期后：Err() -> context deadline exceeded
+
+== 4. 值也沿同一条链往下走 ==
+  第 3 层拿到 trace id：req-7f3a

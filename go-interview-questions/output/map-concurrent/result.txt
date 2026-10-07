@@ -1,0 +1,5 @@
+== 1. 单协程写 nil map：是 panic，recover 接得住 ==
+  结果：panic 被 recover 接住 -> assignment to entry in nil map
+
+== 2. 多协程并发写同一个 map：fatal error ==
+  8 个协程各写 10 万次，每个协程内部都装了 recover

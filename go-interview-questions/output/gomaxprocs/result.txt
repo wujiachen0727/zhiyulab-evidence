@@ -1,0 +1,16 @@
+runtime.Version()      = go1.27.0
+runtime.NumCPU()       = 14
+runtime.GOMAXPROCS(0)  = 14
+
+== GOMAXPROCS 对并行度的影响 ==
+  4 个 CPU 密集协程，每个 1.5 亿次累加；每档先热身一次，再取 3 次的最小值
+  GOMAXPROCS=1 -> 139ms
+  GOMAXPROCS=2 -> 70ms
+  GOMAXPROCS=4 -> 38ms
+  GOMAXPROCS=8 -> 38ms
+
+  相对 GOMAXPROCS=1 的加速比：
+    GOMAXPROCS=1 -> 1.00x
+    GOMAXPROCS=2 -> 1.98x
+    GOMAXPROCS=4 -> 3.65x
+    GOMAXPROCS=8 -> 3.67x

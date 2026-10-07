@@ -45,6 +45,7 @@
 
 | 文章 | 发布时间 | 实验代码 | 配套实验数 |
 |------|---------|---------|:---------:|
+| [《接得住追问的 10 道 Go 面试题》](https://www.wujiachen.com.cn/posts/go-interview-questions) | 2026-10-08 | [`go-interview-questions/`](go-interview-questions) | 13 目录（10 道题各一组实验 + 3 个 `for range` 版本对照模块：slice 别名条件、typed nil 接口、三档语言版本对照、defer 参数求值与汇编对照、并发 map fatal、goroutine 泄漏计数、channel 关闭四种形态、context 取消传播、GOMAXPROCS 加速比，各含可运行 main.go + go.mod + 原始输出） |
 | [《Go 1.27：自动拿到的、现在能用的、先别动的》](https://www.wujiachen.com.cn/posts/go-127-release) | 2026-08-27 | [`go-127-release/`](go-127-release) | 4 组（json-compare 1.26 vs 1.27 + generic-method 接口/reflect + malloc-bench + goroutineleak 可达性，各含可运行代码 + result.md） |
 | [《幂等性设计：唯一ID、状态机与乐观锁的三层防线》](https://www.wujiachen.com.cn/posts/idempotency-design) | 2026-08-14 | [`idempotency-design/`](idempotency-design) | 4 组 Go 实验（E1 幂等键防重复 99→0 笔重复入账 + E2 状态机防乱序 + E3 乐观锁防并发 10 笔丢 9→全生效 + E4 层间冲突 盲目重试渠道退款 2 次 vs 幂等键 1 次，各含可运行 main.go + README + 运行输出） |
 | [《Go 内存分配器：每一个设计，都在讨价还价》](https://www.wujiachen.com.cn/posts/go-memory-allocator-design) | 2026-08-11 | [`go-memory-allocator-design/`](go-memory-allocator-design) | 4 组实验（E1 简化 allocator 三版本对比 混合1.8x/纯分配缓存反超 + E2 跨 size class 边界实测 32→33 慢66% + E3 tiny allocator 对象数合并 4.0x + E4 分配vs复用 6.5x，各含可运行代码 + README + 运行输出） |

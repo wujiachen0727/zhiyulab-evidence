@@ -1,0 +1,12 @@
+fatal error: concurrent map writes
+
+goroutine 12 [running]:
+internal/runtime/maps.fatal({0x100344a18?, 0x0?})
+	/Users/wujiachen/.goenv/versions/1.27.0/src/runtime/panic.go:1195 +0x20
+main.main.func2(0x7)
+	/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/map-concurrent/main.go:37 +0x74
+created by main.main in goroutine 1
+	/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/map-concurrent/main.go:29 +0x118
+exit status 2
+Error: exit status 1
+exit status 1

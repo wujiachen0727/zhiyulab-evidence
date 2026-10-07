@@ -1,0 +1,12 @@
+# 工具链：go version go1.27.0 darwin/arm64
+# TEXT 行分隔函数；关注 CALL 的目标是 runtime.deferproc 还是只有 runtime.deferreturn
+	0x0000 00000 (/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/defer-loop-alloc/main.go:11)	TEXT	main.nonLoop(SB), ABIInternal, $32-0
+	0x004c 00076 (/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/defer-loop-alloc/main.go:14)	CALL	runtime.deferreturn(SB)
+	rel 76+4 t=R_CALLARM64 runtime.deferreturn+0
+	0x0000 00000 (/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/defer-loop-alloc/main.go:17)	TEXT	main.inLoop(SB), ABIInternal, $32-8
+	0x0038 00056 (/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/defer-loop-alloc/main.go:19)	CALL	runtime.deferproc(SB)
+	0x0040 00064 (/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/defer-loop-alloc/main.go:21)	CALL	runtime.deferreturn(SB)
+	0x0050 00080 (/Users/wujiachen/WriteCraft/articles/go-interview-questions/evidence/code/defer-loop-alloc/main.go:21)	CALL	runtime.deferreturn(SB)
+	rel 56+4 t=R_CALLARM64 runtime.deferproc+0
+	rel 64+4 t=R_CALLARM64 runtime.deferreturn+0
+	rel 80+4 t=R_CALLARM64 runtime.deferreturn+0

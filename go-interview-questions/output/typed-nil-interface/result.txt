@@ -1,0 +1,20 @@
+== 1. 返回值与 nil 的比较 ==
+  runGood()  == nil            -> true
+  runSafe()  == nil            -> false
+  runSafe()  的动态类型         -> *main.SafeErr
+  runSafe()  的动态值           -> boom(未初始化)
+
+== 2. 调用方会因此走错分支 ==
+  调用方判定为出错，错误消息："boom(未初始化)"
+
+== 3. 接口值什么时候才是 nil ==
+  声明但未赋值          e == nil -> true
+  赋了 typed nil        e == nil -> false
+  赋了真实错误          e == nil -> false
+
+== 4. 更糟的一种：Error 方法一调用就崩 ==
+  调用方判定为出错，接着调用 err.Error() 打日志……
+  err.Error() 触发 panic：runtime error: invalid memory address or nil pointer dereference
+
+== 5. 识别 typed nil 的两种方式 ==
+  errors.As 取出后 target == nil，可以判定这是个空指针错误
