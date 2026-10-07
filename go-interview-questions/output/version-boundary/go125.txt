@@ -1,0 +1,5 @@
+工具链 runtime.Version() = go1.25.11
+runtime.NumCPU()         = 14
+runtime.GOMAXPROCS(0)    = 14
+
+wg.Go 汇总结果 = 6

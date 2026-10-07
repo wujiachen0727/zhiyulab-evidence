@@ -1,0 +1,4 @@
+# vb124
+./main.go:22:6: wg.Go undefined (type "sync".WaitGroup has no field or method Go)
+Error: exit status 1
+exit status 1
