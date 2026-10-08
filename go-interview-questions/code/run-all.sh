@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 逐个运行 E1–E10 实验，把真实输出落盘到 ../output/{实验名}/
+# 逐个运行 11 组实验（E1–E11），把真实输出落盘到 ../output/{实验名}/
 # 用法：在 evidence/code/ 目录下执行 bash run-all.sh
 set -u
 
